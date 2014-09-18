@@ -52,7 +52,7 @@ Feature: Banner visibility checks for Wikipedia
     When I am on a long Wikipedia article page and provide a <banner_code>
     And The <given_banner_id> should become visible
     And I wait a second
-    And I click the <close_button>
+    And I click the <close_button> element
     Then The <given_banner_id> should hide
 
   Examples:

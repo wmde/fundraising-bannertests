@@ -54,10 +54,10 @@ And(/^I wait a second$/) do
 end
 
 
-And(/^I click the (.*)$/) do | close_button |
+And(/^I click the (.*) element$/) do | close_button |
   on(ArticlePage).get_element( close_button ).click
 end
 
-Then(/^The (.*) should hide$/) do |given_banner_id|
+Then(/^The (.*) should hide$/) do | given_banner_id |
   expect(on(ArticlePage).get_element( given_banner_id ).visible? ).to be false
 end

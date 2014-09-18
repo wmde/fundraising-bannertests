@@ -10,7 +10,6 @@ class ArticlePage
 
   div(:div_footer, :id => 'footer')
 
-
   def goto_article_page_banner ( article_name, banner_code )
     navigate_to URL.mediawiki_url + "?title=#{article_name}&banner=#{banner_code}"
   end
@@ -31,6 +30,11 @@ class ArticlePage
     wait_until do
       get_element( banner_div_id ).visible?
     end
+  end
+
+
+  def click_banner_from_deposit ( banner_div_id  )
+    @browser.element(xpath: "//div[@id = \'#{banner_div_id}\']/descendant::button[contains(@class,\'send\')][1]/").click
   end
 end
 
