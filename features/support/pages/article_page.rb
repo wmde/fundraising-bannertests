@@ -7,6 +7,7 @@ class ArticlePage
   div(:div_site_notice, :id => 'siteNotice')
   div(:div_central_notice, :id => 'centralNotice')
 
+  text_field(:input_amount, :xpath => "//input[@id = 'amount_other']/following::input[1]")
 
   div(:div_footer, :id => 'footer')
 
@@ -32,9 +33,20 @@ class ArticlePage
     end
   end
 
+  def click_banner_from ( banner_div_id, option  )
+    if ( option == 'debit' )
+      @browser.element(xpath: "//div[@id = \'#{banner_div_id}\']/descendant::button[contains(@class,\'send\')][1]").click
+    elsif ( option == 'deposit' )
+      @browser.element(xpath: "//div[@id = \'#{banner_div_id}\']/descendant::button[contains(@class,\'send\')][2]").click
+    elsif ( option == 'credit' )
+      @browser.element(xpath: "//div[@id = \'#{banner_div_id}\']/descendant::button[contains(@class,\'send\')][3]").click
+    elsif ( option == 'paypal' )
+      @browser.element(xpath: "//div[@id = \'#{banner_div_id}\']/descendant::button[contains(@class,\'send\')][4]").click
+    end
+  end
 
-  def click_banner_from_deposit ( banner_div_id  )
-    @browser.element(xpath: "//div[@id = \'#{banner_div_id}\']/descendant::button[contains(@class,\'send\')][1]/").click
+  def click_banner_amount ( amount )
+    @browser.element(xpath: "//input[@id = \'#{amount}\']").click
   end
 end
 
