@@ -1,3 +1,5 @@
+# @licence GNU GPL v2+
+# @author Christoph Fischer
 
 Feature: Check form functionality in banners for Wikipedia
 

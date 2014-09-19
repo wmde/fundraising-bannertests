@@ -1,3 +1,5 @@
+# @licence GNU GPL v2+
+# @author Christoph Fischer
 
 Given(/^I am on a random Wikipedia article page$/) do
   visit(ArticlePage)

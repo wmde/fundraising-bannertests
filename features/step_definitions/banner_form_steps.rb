@@ -1,3 +1,5 @@
+# @licence GNU GPL v2+
+# @author Christoph Fischer
 
 And(/^I click the regularly interval option$/) do
   on(ArticlePage).get_element( 'interval_multiple' ).click

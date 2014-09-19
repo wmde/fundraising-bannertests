@@ -1,3 +1,5 @@
+# @licence GNU GPL v2+
+# @author Christoph Fischer
 
 Feature: Banner visibility checks for Wikipedia
 
