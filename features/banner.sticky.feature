@@ -18,7 +18,7 @@ Feature: Check sticky functionality in banners for Wikipedia
     | B14_WMDE_140918_ctrl | B14_WMDE_140918_ctrl |
 
 
-  Scenario Outline: Checks if a given sticky banner can be disabled
+  Scenario Outline: Checks if a given sticky banner can be closed
     When I am on a long Wikipedia article page and provide a <banner_code>
     And The <banner_div_id> should become visible
     And I wait a second
@@ -27,4 +27,4 @@ Feature: Check sticky functionality in banners for Wikipedia
 
   Examples:
     | banner_code | banner_div_id | close_button_id |
-    | B14_WMDE_140918_ctrl | B14_WMDE_140918_ctrl |B14_WMDE_140918_ctrl-close |
+    | B14_WMDE_140918_ctrl | B14_WMDE_140918_ctrl | B14_WMDE_140918_ctrl-close |

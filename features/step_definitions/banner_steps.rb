@@ -60,6 +60,10 @@ And(/^I click the (.*) element$/) do | close_button |
   on(ArticlePage).get_element( close_button ).click
 end
 
+And(/^I click the (.*) element span$/) do | close_button |
+  on(ArticlePage).get_span_by_class( close_button ).click
+end
+
 Then(/^The (.*) should hide$/) do | banner_div_id |
   expect(on(ArticlePage).get_element( banner_div_id ).visible? ).to be false
 end
