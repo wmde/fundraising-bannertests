@@ -7,13 +7,13 @@ Feature: Check form functionality in banners for Wikipedia
 
   Scenario Outline: Checks if the form switches the interval options
     When I am on a long Wikipedia article page and provide a <banner_code>
-    And The <given_banner_id> should become visible
+    And The <banner_div_id> should become visible
     And I wait a second
     And I click the regularly interval option
     Then Regularly details shows
 
   Examples:
-    | given_banner_id | banner_code |
+    | banner_code | banner_div_id |
     | B14_WMDE_140918_switch | B14_WMDE_140918_switch |
 
 
