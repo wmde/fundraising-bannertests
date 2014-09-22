@@ -38,8 +38,7 @@ Feature: Check super-sticky functionality in banners for Wikipedia
     And The <sticky_div_id> should become visible
     And I wait a second
     And I click the <sticky_close_button_id> element span
-    Then The <banner_div_id> should hide
-    And The <sticky_div_id> should hide
+    Then The <sticky_div_id> should hide
 
   Examples:
     | banner_code | banner_div_id | sticky_div_id | sticky_close_button_id |
