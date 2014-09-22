@@ -11,8 +11,8 @@ Given(/^I am on a random Wikipedia article page and provide a (.*)$/) do | banne
 end
 
 
-Then(/^The (.*) should be present$/) do | given_banner_id |
-  expect(on(ArticlePage).get_element( given_banner_id ).exists?).to be true
+Then(/^The (.*) should be present$/) do | banner_div_id |
+  expect(on(ArticlePage).get_element( banner_div_id ).exists?).to be true
 end
 
 
@@ -24,8 +24,8 @@ And(/^I start a timer$/) do
   @start_time = Time.now
 end
 
-Then(/^The (.*) should become visible$/) do |given_banner_id|
-  on(ArticlePage).wait_for_banner_to_show( given_banner_id )
+Then(/^The (.*) should become visible$/) do |banner_div_id|
+  on(ArticlePage).wait_for_banner_to_show( banner_div_id )
 end
 
 And(/^The timer should not exceed the (.*)$/) do | time_limit |
@@ -38,17 +38,17 @@ And(/^I scroll to the footer$/) do
   on(ArticlePage).div_footer_element.scroll_into_view()
 end
 
-Then(/^The (.*) should be in the field of view$/) do | given_banner_id |
-  on(ArticlePage).element_in_view( given_banner_id )
+Then(/^The (.*) should be in the field of view$/) do | banner_div_id |
+  on(ArticlePage).element_in_view( banner_div_id )
 end
 
 
-And(/^The (.*) has a concrete position on the Y-axis$/) do | given_banner_id |
-  @position = on(ArticlePage).get_banner_y_position( given_banner_id )
+And(/^The (.*) has a concrete position on the Y-axis$/) do | banner_div_id |
+  @position = on(ArticlePage).get_banner_y_position( banner_div_id )
 end
 
-Then(/^The (.*) should move its position on the Y-axis downwards$/) do | given_banner_id |
-  expect(on(ArticlePage).get_banner_y_position( given_banner_id ) > @position).to be true
+Then(/^The (.*) should move its position on the Y-axis downwards$/) do | banner_div_id |
+  expect(on(ArticlePage).get_banner_y_position( banner_div_id ) > @position).to be true
 end
 
 And(/^I wait a second$/) do
@@ -60,6 +60,10 @@ And(/^I click the (.*) element$/) do | close_button |
   on(ArticlePage).get_element( close_button ).click
 end
 
-Then(/^The (.*) should hide$/) do | given_banner_id |
-  expect(on(ArticlePage).get_element( given_banner_id ).visible? ).to be false
+Then(/^The (.*) should hide$/) do | banner_div_id |
+  expect(on(ArticlePage).get_element( banner_div_id ).visible? ).to be false
+end
+
+Then(/^The (.*) should have the same position on the Y\-axis$/) do | banner_div_id |
+  expect(on(ArticlePage).get_banner_y_position( banner_div_id ) == @position).to be true
 end
