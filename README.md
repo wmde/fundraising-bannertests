@@ -20,8 +20,8 @@ OR follow these steps (Linux):
 
 ## Configuration
 
-Mediawiki URL & language
-	MEDIAWIKI_URL: "de.wikipedia.org"
+Mediawiki URL
+	MEDIAWIKI_URL: ""
 
 ## Executing tests
 
