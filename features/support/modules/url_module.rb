@@ -11,8 +11,7 @@
 module URL
   def self.mediawiki_url()
     url = ENV["MEDIAWIKI_URL"]
-    lang = ENV["MEDIAWIKI_LANGUAGE"]
-    "http://#{lang}.#{url}"
+    "http://#{url}"
   end
 
   def self.random_article()

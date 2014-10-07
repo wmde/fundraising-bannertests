@@ -5,8 +5,7 @@
 # The environment variable will then be used instead of the values in here.
 
 # local configuration
-MEDIAWIKI_URL: "wikipedia.org"
-MEDIAWIKI_LANGUAGE: "de"
+MEDIAWIKI_URL: "de.wikipedia.org"
 
 # local browser configuration
 BROWSER: "firefox"
