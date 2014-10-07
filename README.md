@@ -21,6 +21,7 @@ OR follow these steps (Linux):
 ## Configuration
 
 Mediawiki URL
+
 	MEDIAWIKI_URL: ""
 
 ## Executing tests

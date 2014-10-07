@@ -1,5 +1,5 @@
 # @licence GNU GPL v2+
-# @author Christoph Fischer
+# @author Christoph Fischer <christoph.fischer@wikimedia.de>
 
 And(/^I click the regularly interval option$/) do
   on(ArticlePage).get_element( 'interval_multiple' ).click
@@ -14,18 +14,18 @@ And(/^I click the (.*) banner (deposit|credit|debit|paypal) option$/) do | banne
 end
 
 Then(/^The fundraising frontend shows$/) do
-  expect(on(FrontendFrontPage).div_spenden_element.visible?).to be true
+  expect(on(SpendenFrontendFrontPage).div_spenden_element.visible?).to be true
 end
 
 And(/^The (deposit|credit|debit|paypal) option should be selected$/) do | option |
   if ( option == 'debit' )
-    expect(on(FrontendFrontPage).radio_debit_element.selected?).to be true
+    expect(on(SpendenFrontendFrontPage).radio_debit_element.selected?).to be true
   elsif ( option == 'deposit' )
-    expect(on(FrontendFrontPage).radio_deposit_element.selected?).to be true
+    expect(on(SpendenFrontendFrontPage).radio_deposit_element.selected?).to be true
   elsif ( option == 'credit' )
-    expect(on(FrontendFrontPage).radio_credit_element.selected?).to be true
+    expect(on(SpendenFrontendFrontPage).radio_credit_element.selected?).to be true
   elsif ( option == 'paypal' )
-    expect(on(FrontendFrontPage).radio_paypal_element.selected?).to be true
+    expect(on(SpendenFrontendFrontPage).radio_paypal_element.selected?).to be true
   end
 end
 
@@ -36,25 +36,25 @@ end
 
 And(/^The (.*) amount should be selected$/) do | amount |
   if ( amount == 'amount5' )
-    expect(on(FrontendFrontPage).radio_5_element.selected?).to be true
+    expect(on(SpendenFrontendFrontPage).radio_5_element.selected?).to be true
   elsif ( amount == 'amount15' )
-    expect(on(FrontendFrontPage).radio_15_element.selected?).to be true
+    expect(on(SpendenFrontendFrontPage).radio_15_element.selected?).to be true
   elsif ( amount == 'amount25' )
-    expect(on(FrontendFrontPage).radio_25_element.selected?).to be true
+    expect(on(SpendenFrontendFrontPage).radio_25_element.selected?).to be true
   elsif ( amount == 'amount50' )
-    expect(on(FrontendFrontPage).radio_50_element.selected?).to be true
+    expect(on(SpendenFrontendFrontPage).radio_50_element.selected?).to be true
   elsif ( amount == 'amount75' )
-    expect(on(FrontendFrontPage).radio_75_element.selected?).to be true
+    expect(on(SpendenFrontendFrontPage).radio_75_element.selected?).to be true
   elsif ( amount == 'amount100' )
-    expect(on(FrontendFrontPage).radio_100_element.selected?).to be true
+    expect(on(SpendenFrontendFrontPage).radio_100_element.selected?).to be true
   elsif ( amount == 'amount250' )
-    expect(on(FrontendFrontPage).radio_250_element.selected?).to be true
+    expect(on(SpendenFrontendFrontPage).radio_250_element.selected?).to be true
   end
 end
 
 def generate_random_amount()
-  prng = Random.new
-  return prng.rand(1..99999)
+  random = Random.new
+  return random.rand(1..99999)
 end
 
 And(/^I enter an random valid amount$/) do
@@ -63,5 +63,5 @@ And(/^I enter an random valid amount$/) do
 end
 
 And(/^The given amount should show$/) do
-  expect(on(FrontendFrontPage).get_donation_amount_element.text).to be == "#{@amount}€"
+  expect(on(SpendenFrontendFrontPage).get_donation_amount_element.text).to be == "#{@amount}€"
 end

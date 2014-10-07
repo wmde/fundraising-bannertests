@@ -1,5 +1,5 @@
 # @licence GNU GPL v2+
-# @author Christoph Fischer
+# @author Christoph Fischer <christoph.fischer@wikimedia.de>
 
 Feature: Check super-sticky functionality in banners for Wikipedia
 

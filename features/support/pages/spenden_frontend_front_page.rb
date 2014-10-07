@@ -1,8 +1,9 @@
-# taken from WMDE/fundraising-browsertests
 # @licence GNU GPL v2+
-# @author Christoph Fischer
+# @author Christoph Fischer <christoph.fischer@wikimedia.de>
+#
+# page object for the spenden.wikimedia.de frontpage
 
-class FrontendFrontPage
+class SpendenFrontendFrontPage
   include PageObject
 
   div(:div_spenden, :id => 'spenden')
@@ -30,7 +31,6 @@ class FrontendFrontPage
 
 
   def get_donation_amount_element ()
-    #TODO id in template
     @browser.element(xpath: '//span[contains(@class,\'icon-ok-sign\')]/child::strong[1]')
   end
 end

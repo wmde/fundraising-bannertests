@@ -1,12 +1,12 @@
 # @licence GNU GPL v2+
-# @author Christoph Fischer
+# @author Christoph Fischer <christoph.fischer@wikimedia.de>
 
 Feature: Banner visibility checks for Wikipedia
 
   Background:
 
   Scenario Outline: Checks if a given banner is live
-    When I am on a random Wikipedia article page
+    When I am on the Wikipedia start page
     Then The <banner_div_id> should be present
 
   Examples:

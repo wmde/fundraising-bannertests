@@ -1,5 +1,5 @@
 # @licence GNU GPL v2+
-# @author Christoph Fischer
+# @author Christoph Fischer <christoph.fischer@wikimedia.de>
 
 Feature: Check sticky functionality in banners for Wikipedia
 
@@ -19,7 +19,7 @@ Feature: Check sticky functionality in banners for Wikipedia
 
 
   Scenario Outline: Checks if a given sticky banner can be closed
-    When I am on a long Wikipedia article page and provide a <banner_code>
+    When I am on a random Wikipedia article page and provide a <banner_code>
     And The <banner_div_id> should become visible
     And I wait a second
     And I click the <close_button_id> element

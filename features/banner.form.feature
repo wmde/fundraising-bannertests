@@ -1,12 +1,12 @@
 # @licence GNU GPL v2+
-# @author Christoph Fischer
+# @author Christoph Fischer <christoph.fischer@wikimedia.de>
 
-Feature: Check form functionality in banners for Wikipedia
+Feature: Checks wikimedia.de fundraising form functionality in banners for Wikipedia
 
   Background:
 
   Scenario Outline: Checks if the form switches the interval options
-    When I am on a long Wikipedia article page and provide a <banner_code>
+    When I am on a random Wikipedia article page and provide a <banner_code>
     And The <banner_div_id> should become visible
     And I wait a second
     And I click the regularly interval option
