@@ -5,15 +5,10 @@
 
 class ArticlePage
   include PageObject
-	include BannerModule
-	include BannerFormModule
+  include BannerModule
+  include BannerFormModule
 
   page_url URL.mediawiki_url
 
-  div(:div_footer, :id => 'footer')
+  div(:div_footer, id: 'footer')
 end
-
-
-
-
-

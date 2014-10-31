@@ -2,8 +2,8 @@
 # @author Christoph Fischer <christoph.fischer@wikimedia.de>
 
 module URL
-  def self.mediawiki_url()
-    url = ENV["MEDIAWIKI_URL"]
+  def self.mediawiki_url
+    url = ENV['MEDIAWIKI_URL']
     "http://#{url}"
   end
 end
