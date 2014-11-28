@@ -6,13 +6,18 @@
 module BannerModule
   include PageObject
 
-  def goto_article_page_with_banner(article_name, banner_code)
-    navigate_to URL.mediawiki_url + "?title=#{article_name}&banner=#{banner_code}"
-  end
+  def goto_article_page_with_banner(article_name, banner_code, mob)
+		if mob === false
+    	navigate_to URL.mediawiki_url + "?title=#{article_name}&banner=#{banner_code}"
+		end
+		if mob === true
+			navigate_to URL.mediawiki_mobile_url + "?title=#{article_name}&banner=#{banner_code}"
+		end
+	end
 
-  def goto_random_page_with_banner(banner_code)
-    goto_article_page_with_banner('special:random', banner_code)
-  end
+  def goto_random_page_with_banner(banner_code, mob)
+    goto_article_page_with_banner('special:random', banner_code, mob)
+	end
 
   def get_element(id)
     @browser.element(id: "#{id}")
