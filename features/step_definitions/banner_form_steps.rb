@@ -17,6 +17,14 @@ Then(/^The fundraising frontend shows$/) do
   expect(on(SpendenFrontendFrontPage).div_spenden_element.visible?).to be true
 end
 
+Then(/^The paypal donation page shows$/) do
+	on(PaypalFrontPage) do | page |
+		page.wait_until do
+			page.table_content_container_element.visible?
+		end
+	end
+end
+
 And(/^The (deposit|credit|debit|paypal) option should be selected$/) do | option |
   if (option == 'debit')
     expect(on(SpendenFrontendFrontPage).radio_debit_element.selected?).to be true
@@ -59,6 +67,10 @@ end
 And(/^I enter an random valid amount$/) do
   @amount = generate_random_amount
   on(ArticlePage).input_amount = @amount
+end
+
+And(/^The (.*) amount value should show$/) do | amount |
+	expect(on(SpendenFrontendFrontPage).get_donation_amount_element.text).to be == "#{amount},00"
 end
 
 And(/^The given amount should show$/) do

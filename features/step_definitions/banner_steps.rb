@@ -6,7 +6,7 @@ Given(/^I am on the Wikipedia start page$/) do
 end
 
 When(/^I am on a random mobile Wikipedia article page and provide a (.*)$/) do | banner_code |
-	on(ArticlePage).goto_random_mobile_page_with_banner(banner_code, true)
+	on(ArticlePage).goto_random_page_with_banner(banner_code, true)
 end
 
 Given(/^I am on a random Wikipedia article page and provide a (.*)$/) do | banner_code |

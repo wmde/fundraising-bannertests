@@ -18,7 +18,15 @@ module BannerFormModule
     elsif (option == 'paypal')
       @browser.element(xpath: "//div[@id = \'#{banner_div_id}\']/descendant::button[contains(@class,\'send\')][4]").click
     end
-  end
+	end
+
+	def click_mobilebanner_from(banner_div_id, option)
+		if (option == 'credit')
+			@browser.element(id: "#{banner_div_id}_btn-cc").click
+		elsif (option == 'paypal')
+			@browser.element(id: "#{banner_div_id}_btn-ppl").click
+		end
+	end
 
   def click_banner_amount(amount)
     @browser.element(xpath: "//input[@id = \'#{amount}\']").click
