@@ -14,7 +14,11 @@ And(/^I click the (.*) banner (deposit|credit|debit|paypal) option$/) do | banne
 end
 
 Then(/^The fundraising frontend shows$/) do
-  expect(on(SpendenFrontendFrontPage).div_spenden_element.visible?).to be true
+	on(SpendenFrontendFrontPage) do | page |
+		page.wait_until do
+			page.div_spenden_element.visible?
+		end
+	end
 end
 
 Then(/^The paypal donation page shows$/) do
