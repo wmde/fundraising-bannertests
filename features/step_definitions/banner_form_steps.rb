@@ -30,13 +30,13 @@ Then(/^The paypal donation page shows$/) do
 end
 
 And(/^The (deposit|credit|debit|paypal) option should be selected$/) do | option |
-  if (option == 'debit')
+  if option == 'debit'
     expect(on(SpendenFrontendFrontPage).radio_debit_element.selected?).to be true
-  elsif (option == 'deposit')
+  elsif option == 'deposit'
     expect(on(SpendenFrontendFrontPage).radio_deposit_element.selected?).to be true
-  elsif (option == 'credit')
+  elsif option == 'credit'
     expect(on(SpendenFrontendFrontPage).radio_credit_element.selected?).to be true
-  elsif (option == 'paypal')
+  elsif option == 'paypal'
     expect(on(SpendenFrontendFrontPage).radio_paypal_element.selected?).to be true
   end
 end
@@ -46,19 +46,19 @@ And(/^I click the banner (.*) amount option$/) do | amount |
 end
 
 And(/^The (.*) amount should be selected$/) do | amount |
-  if (amount == 'amount5')
+  if amount == 'amount5'
     expect(on(SpendenFrontendFrontPage).radio_5_element.selected?).to be true
-  elsif (amount == 'amount15')
+  elsif amount == 'amount15'
     expect(on(SpendenFrontendFrontPage).radio_15_element.selected?).to be true
-  elsif (amount == 'amount25')
+  elsif amount == 'amount25'
     expect(on(SpendenFrontendFrontPage).radio_25_element.selected?).to be true
-  elsif (amount == 'amount50')
+  elsif amount == 'amount50'
     expect(on(SpendenFrontendFrontPage).radio_50_element.selected?).to be true
-  elsif (amount == 'amount75')
+  elsif amount == 'amount75'
     expect(on(SpendenFrontendFrontPage).radio_75_element.selected?).to be true
-  elsif (amount == 'amount100')
+  elsif amount == 'amount100'
     expect(on(SpendenFrontendFrontPage).radio_100_element.selected?).to be true
-  elsif (amount == 'amount250')
+  elsif amount == 'amount250'
     expect(on(SpendenFrontendFrontPage).radio_250_element.selected?).to be true
   end
 end
