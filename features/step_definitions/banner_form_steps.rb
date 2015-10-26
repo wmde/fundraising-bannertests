@@ -2,7 +2,7 @@
 # @author Christoph Fischer <christoph.fischer@wikimedia.de>
 
 And(/^I click the regularly interval option$/) do
-  on(ArticlePage).get_element('interval_multiple').click
+  on(ArticlePage).get_element_by_id('interval_multiple', 'input').when_visible.click
 end
 
 Then(/^Regularly details shows$/) do
