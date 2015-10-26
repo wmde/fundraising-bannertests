@@ -13,6 +13,10 @@ When(/^I am on a random Wikipedia article page and provide a (.*)$/) do | banner
   on(ArticlePage).goto_random_page_with_banner(banner_code, false)
 end
 
+When(/^(.*) becomes visible$/) do |banner_div_id|
+  on(ArticlePage).wait_for_banner_to_show(banner_div_id)
+end
+
 When(/^I am on a long Wikipedia article page and provide a (.*)$/) do | banner_code |
   on(ArticlePage).goto_article_page_with_banner('Stausee Lipno', banner_code)
 end
