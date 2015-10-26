@@ -27,6 +27,11 @@ When(/^I remove the (.*) address data$/) do |field|
   on(ArticlePage).get_element_by_id(field, 'text_field').when_visible.clear
 end
 
+When(/^I enter an invalid email$/) do
+  on(ArticlePage).get_element_by_id('email', 'text_field').when_visible.clear
+  on(ArticlePage).get_element_by_id('email', 'text_field').when_visible.send_keys 'obviously@totallyinvalidemailaddressforreal.com'
+end
+
 When(/^I enter valid sepa bank data$/) do
   on(ArticlePage).get_element_by_id('iban', 'text_field').when_visible.send_keys 'DE12500105170648489890'
 end
@@ -109,5 +114,9 @@ Then(/^The finish donation button should not be visible$/) do
 end
 
 Then(/^An (.*) error should show$/) do |field|
-  expect(on(ArticlePage).get_error_by_field(field).when_visible).to be_visible
+  expect(on(ArticlePage).get_validation_span_by_field(field).when_visible.class_name).to eq 'validation icon-bug'
+end
+
+Then(/^An (.*) error should not show$/) do |field|
+  expect(on(ArticlePage).get_validation_span_by_field(field).when_visible.class_name).to eq 'validation icon-ok'
 end

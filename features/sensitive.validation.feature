@@ -34,3 +34,12 @@ Feature: Checks wikimedia.de fundraising validation functionality in the sensiti
       | post-code |
       | city |
       | email |
+
+  Scenario: Checks if the form validation complains with invalid email
+    When I click sensitive banner deposit option
+    And I enter sensitive address data
+    And I enter an invalid email
+    And I submit the sensitive banner deposit form by clicking the submit button
+    Then The address donation part should be visible
+    And An email error should show
+    And An first-name error should not show

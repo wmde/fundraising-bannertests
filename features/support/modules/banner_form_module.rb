@@ -32,8 +32,8 @@ module BannerFormModule
     end
   end
 
-  def get_error_by_field(field)
-    element('div', xpath: ".//*[@id='#{field}']/following::div[contains(@class, 'form-field-error-box')][1]")
+  def get_validation_span_by_field(field)
+    element('span', xpath: ".//*[@id='#{field}']/following::span[contains(@class, 'validation')][1]")
   end
 
   def click_mobilebanner_from(banner_div_id, option)
