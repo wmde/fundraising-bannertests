@@ -6,7 +6,7 @@
 class SpendenFrontendFrontPage
   include PageObject
 
-  div(:div_spenden, id: 'spenden')
+  div(:div_spenden, id: 'wrapper')
 
   radio_button(:radio_deposit, id: 'payment-type-1')
   radio_button(:radio_credit, id: 'payment-type-2')

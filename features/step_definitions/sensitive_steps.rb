@@ -15,16 +15,24 @@ When(/^I click on the anonymous option$/) do
 end
 
 When(/^I enter sensitive address data$/) do
-  on(ArticlePage).get_element_by_id('first-name', 'text_field').when_visible.value = 'Maxe'
-  on(ArticlePage).get_element_by_id('last-name', 'text_field').when_visible.value = 'Peter'
-  on(ArticlePage).get_element_by_id('street', 'text_field').when_visible.value = 'Hansstrasse. 13'
-  on(ArticlePage).get_element_by_id('city', 'text_field').when_visible.value = 'Stadtmuster'
-  on(ArticlePage).get_element_by_id('post-code', 'text_field').when_visible.value = '12345'
-  on(ArticlePage).get_element_by_id('email', 'text_field').when_visible.value = 'max@test.de'
+  on(ArticlePage).get_element_by_id('first-name', 'text_field').when_visible.send_keys 'Maxe'
+  on(ArticlePage).get_element_by_id('last-name', 'text_field').when_visible.send_keys 'Peter'
+  on(ArticlePage).get_element_by_id('street', 'text_field').when_visible.send_keys 'Hansstrasse. 13'
+  on(ArticlePage).get_element_by_id('city', 'text_field').when_visible.send_keys 'Stadtmuster'
+  on(ArticlePage).get_element_by_id('post-code', 'text_field').when_visible.send_keys '12345'
+  on(ArticlePage).get_element_by_id('email', 'text_field').when_visible.send_keys 'max@test.de'
 end
 
 When(/^I enter valid sepa bank data$/) do
-  on(ArticlePage).get_element_by_id('iban', 'text_field').when_visible.value = 'DE12500105170648489890'
+  on(ArticlePage).get_element_by_id('iban', 'text_field').when_visible.send_keys 'DE12500105170648489890'
+end
+
+When(/^I submit the sensitive banner deposit form by clicking the submit button$/) do
+  on(ArticlePage).get_element_by_id('WMDE_BannerFullForm-finish', 'button').when_visible.click
+end
+
+When(/^I submit the sensitive banner deposit form by pressing the enter key$/) do
+  on(ArticlePage).get_element_by_id('first-name', 'text_field').when_visible.send_keys :enter
 end
 
 Then(/^The sensitive address data should be cleared$/) do
@@ -95,4 +103,3 @@ end
 Then(/^The finish donation button should not be visible$/) do
   expect(on(ArticlePage).get_element_by_id('WMDE_BannerFullForm-finish', 'button').when_not_visible).not_to be_visible
 end
-
