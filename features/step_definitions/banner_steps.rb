@@ -6,7 +6,7 @@ Given(/^I am on the Wikipedia start page$/) do
 end
 
 When(/^I am on a random mobile Wikipedia article page and provide a (.*)$/) do | banner_code |
-	on(ArticlePage).goto_random_page_with_banner(banner_code, true)
+  on(ArticlePage).goto_random_page_with_banner(banner_code, true)
 end
 
 Given(/^I am on a random Wikipedia article page and provide a (.*)$/) do | banner_code |
@@ -30,7 +30,7 @@ Then(/^The (.*) should become visible$/) do |banner_div_id|
 end
 
 And(/^The timer should not exceed the (.*)$/) do | time_limit |
-  duration = Time.now  - @start_time
+  duration = Time.now - @start_time
   duration.should < time_limit.to_i
 end
 
@@ -53,5 +53,3 @@ end
 Then(/^The (.*) should vanish$/) do | banner_div_id |
   expect(on(ArticlePage).get_element(banner_div_id).exists?).to be false
 end
-
-

@@ -14,19 +14,19 @@ And(/^I click the (.*) banner (deposit|credit|debit|paypal) option$/) do | banne
 end
 
 Then(/^The fundraising frontend shows$/) do
-	on(SpendenFrontendFrontPage) do | page |
-		page.wait_until do
-			page.div_spenden_element.visible?
-		end
-	end
+  on(SpendenFrontendFrontPage) do | page |
+    page.wait_until do
+     page.div_spenden_element.visible?
+   end
+  end
 end
 
 Then(/^The paypal donation page shows$/) do
-	on(PaypalFrontPage) do | page |
-		page.wait_until do
-			page.table_content_container_element.visible?
-		end
-	end
+  on(PaypalFrontPage) do | page |
+    page.wait_until do
+     page.table_content_container_element.visible?
+   end
+  end
 end
 
 And(/^The (deposit|credit|debit|paypal) option should be selected$/) do | option |
@@ -74,7 +74,7 @@ And(/^I enter an random valid amount$/) do
 end
 
 And(/^The (.*) amount value should show$/) do | amount |
-	expect(on(SpendenFrontendFrontPage).get_donation_amount_element.text).to be == "#{amount},00"
+  expect(on(SpendenFrontendFrontPage).get_donation_amount_element.text).to be == "#{amount},00"
 end
 
 And(/^The given amount should show$/) do
