@@ -32,16 +32,43 @@ When(/^I enter an invalid email$/) do
   on(ArticlePage).get_element_by_id('email', 'text_field').when_visible.send_keys 'obviously@totallyinvalidemailaddressforreal.com'
 end
 
+When(/^I enter an invalid post-code$/) do
+  on(ArticlePage).get_element_by_id('post-code', 'text_field').when_visible.clear
+  on(ArticlePage).get_element_by_id('post-code', 'text_field').when_visible.send_keys '123'
+end
+
 When(/^I enter valid sepa bank data$/) do
   on(ArticlePage).get_element_by_id('iban', 'text_field').when_visible.send_keys 'DE12500105170648489890'
 end
 
-When(/^I submit the sensitive banner deposit form by clicking the submit button$/) do
+When(/^I enter invalid sepa bank data$/) do
+  on(ArticlePage).get_element_by_id('iban', 'text_field').when_visible.send_keys 'DE12500105170648489899'
+end
+
+When(/^I enter invalid non-sepa bank data$/) do
+  on(ArticlePage).get_element_by_id('account-number', 'text_field').when_visible.send_keys '12341241244'
+end
+
+When(/^I submit the sensitive banner non-debit form by clicking the submit button$/) do
   on(ArticlePage).get_element_by_id('WMDE_BannerFullForm-finish', 'button').when_visible.click
+end
+
+When(/^I submit the sensitive banner debit form by clicking the submit button$/) do
+  on(ArticlePage).get_element_by_id('WMDE_BannerFullForm-next', 'button').when_visible.click
 end
 
 When(/^I submit the sensitive banner deposit form by pressing the enter key$/) do
   on(ArticlePage).get_element_by_id('first-name', 'text_field').when_visible.send_keys :enter
+end
+
+When(/^I enter valid non-sepa bank data$/) do
+  on(ArticlePage).get_element_by_id('account-number', 'text_field').when_visible.send_keys '0648489890'
+  on(ArticlePage).get_element_by_id('bank-code', 'text_field').when_visible.send_keys '50010517'
+end
+
+Then(/^The sepa bank data should be filled with corresponding data$/) do
+  expect(on(ArticlePage).get_element_by_id('iban', 'text_field').value).to eq 'DE12500105170648489890'
+  expect(on(ArticlePage).get_element_by_id('bic', 'text_field').value).to eq 'INGDDEFFXXX'
 end
 
 Then(/^The sensitive address data should be cleared$/) do
