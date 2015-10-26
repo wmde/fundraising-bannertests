@@ -29,7 +29,7 @@ end
 
 When(/^I enter an invalid email$/) do
   on(ArticlePage).get_element_by_id('email', 'text_field').when_visible.clear
-  on(ArticlePage).get_element_by_id('email', 'text_field').when_visible.send_keys 'obviously@totallyinvalidemailaddressforreal.com'
+  on(ArticlePage).get_element_by_id('email', 'text_field').when_visible.send_keys 'super@totallyinvalidemailaddressforreal.com'
 end
 
 When(/^I enter an invalid post-code$/) do
