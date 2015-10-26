@@ -23,6 +23,10 @@ When(/^I enter sensitive address data$/) do
   on(ArticlePage).get_element_by_id('email', 'text_field').when_visible.send_keys 'max@test.de'
 end
 
+When(/^I remove the (.*) address data$/) do |field|
+  on(ArticlePage).get_element_by_id(field, 'text_field').when_visible.clear
+end
+
 When(/^I enter valid sepa bank data$/) do
   on(ArticlePage).get_element_by_id('iban', 'text_field').when_visible.send_keys 'DE12500105170648489890'
 end
@@ -102,4 +106,8 @@ end
 
 Then(/^The finish donation button should not be visible$/) do
   expect(on(ArticlePage).get_element_by_id('WMDE_BannerFullForm-finish', 'button').when_not_visible).not_to be_visible
+end
+
+Then(/^An (.*) error should show$/) do |field|
+  expect(on(ArticlePage).get_error_by_field(field).when_visible).to be_visible
 end

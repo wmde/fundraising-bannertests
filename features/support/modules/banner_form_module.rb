@@ -32,6 +32,10 @@ module BannerFormModule
     end
   end
 
+  def get_error_by_field(field)
+    element('div', xpath: ".//*[@id='#{field}']/following::div[contains(@class, 'form-field-error-box')][1]")
+  end
+
   def click_mobilebanner_from(banner_div_id, option)
     if (option == 'credit')
       @browser.element(id: "#{banner_div_id}_btn-cc").click

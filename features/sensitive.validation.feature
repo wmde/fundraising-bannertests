@@ -17,3 +17,20 @@ Feature: Checks wikimedia.de fundraising validation functionality in the sensiti
       | submit_type |
       | clicking the submit button |
       | pressing the enter key |
+
+  Scenario Outline: Checks if the form validation complains with incomplete address data
+    When I click sensitive banner deposit option
+    And I enter sensitive address data
+    And I remove the <field> address data
+    And I submit the sensitive banner deposit form by clicking the submit button
+    Then The address donation part should be visible
+    And An <field> error should show
+
+    Examples:
+      | field |
+      | first-name |
+      | last-name |
+      | street |
+      | post-code |
+      | city |
+      | email |
