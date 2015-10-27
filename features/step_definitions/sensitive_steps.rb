@@ -165,3 +165,12 @@ end
 And(/^The cardholder should be the surname and name$/) do
   expect(on(SpendenFrontendFrontPage).input_holder_element.when_visible.value).to eq 'Maxe Peter'
 end
+
+
+Then(/^The paypal form shows$/) do
+  expect(on(SpendenFrontendFrontPage).paypal_main_element.when_visible).to be_visible
+end
+
+And(/^The paypal donation amount should show (.*) Euro$/) do |result_amount|
+  expect(on(SpendenFrontendFrontPage).paypal_amount_element.when_visible.text).to eq result_amount
+end

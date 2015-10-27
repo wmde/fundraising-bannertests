@@ -33,3 +33,11 @@ Feature: Checks wikimedia.de fundraising donation functionality in the sensitive
     Then The credit confirmation page shows
     And The 100 amount value should show
     And The cardholder should be the surname and name
+
+  Scenario: Checks the paypal donation method
+    When I click sensitive banner paypal option
+    And I click the banner amount100 amount option
+    And I enter sensitive address data
+    And I submit the sensitive banner non-debit form by clicking the submit button
+    Then The paypal form shows
+    And The paypal donation amount should show 100,00 Euro

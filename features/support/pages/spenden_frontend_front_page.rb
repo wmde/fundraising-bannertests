@@ -36,6 +36,14 @@ class SpendenFrontendFrontPage
 
   text_field(:input_amount,  id: 'amount-8')
 
+  div(:paypal_main, id: 'xptContentMain')
+  span(:paypal_amount, id: 'mainTotalAmount')
+  link(:paypal_back, xpath: "//input[@id = 'CONTEXT_CGI_VAR']/following::a[1]")
+  text_field(:paypal_login_email, id: 'login_email')
+  text_field(:paypal_login_password, id: 'login_password')
+  button(:paypal_login_button, id: 'login.x')
+  button(:paypal_continue_button, id: 'continue')
+
   def get_donation_amount_element
     @browser.element(xpath: '//span[contains(@class,\'icon-ok-sign\')]/child::strong[1]')
   end
