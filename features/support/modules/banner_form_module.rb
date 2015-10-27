@@ -36,6 +36,14 @@ module BannerFormModule
     element('span', xpath: ".//*[@id='#{field}']/following::span[contains(@class, 'validation')][1]")
   end
 
+  span(:span_confirm_amount, id: 'WMDE_BannerFullForm-confirm-amount')
+  span(:span_confirm_salutation, id: 'WMDE_BannerFullForm-confirm-salutation')
+  span(:span_confirm_street, id: 'WMDE_BannerFullForm-confirm-street')
+  span(:span_confirm_city,  id: 'WMDE_BannerFullForm-confirm-city')
+  span(:span_confirm_mail,  id: 'WMDE_BannerFullForm-confirm-mail')
+  span(:span_confirm_iban,  id: 'WMDE_BannerFullForm-confirm-IBAN')
+  span(:span_confirm_bic,  id: 'WMDE_BannerFullForm-confirm-BIC')
+
   def click_mobilebanner_from(banner_div_id, option)
     if (option == 'credit')
       @browser.element(id: "#{banner_div_id}_btn-cc").click

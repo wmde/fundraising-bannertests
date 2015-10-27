@@ -11,6 +11,10 @@ MEDIAWIKI_MOBILE_URL: "de.m.wikipedia.org"
 # local browser configuration
 BROWSER: "firefox"
 
+# paypal only
+PAYPAL_USERNAME: ""
+PAYPAL_PASSWORD: ""
+
 # saucelab configuration
 #SAUCE_ONDEMAND_USERNAME: "SauceLabUser"
 #SAUCE_ONDEMAND_ACCESS_KEY: "SauceLabKey"
