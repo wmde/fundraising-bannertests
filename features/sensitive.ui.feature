@@ -69,9 +69,9 @@ Feature: Checks wikimedia.de fundraising ui functionality in the sensitive banne
   Scenario: Checks if the anonymous clears fields correctly
     When WMDE_BannerFullForm becomes visible
     And I click sensitive banner deposit option
-    And I enter sensitive address data
+    And I enter sensitive private address data
     And I click on the anonymous option
-    Then The sensitive address data should be cleared
+    Then The sensitive private address data should be cleared
 
   Scenario: Checks if switching the payment method clears fields correctly
     When WMDE_BannerFullForm becomes visible

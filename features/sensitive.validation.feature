@@ -9,7 +9,7 @@ Feature: Checks wikimedia.de fundraising validation functionality in the sensiti
 
   Scenario Outline: Checks if the form validation accepts valid address data
     When I click sensitive banner deposit option
-    And I enter sensitive address data
+    And I enter sensitive private address data
     And I submit the sensitive banner non-debit form by <submit_type>
     Then The fundraising frontend shows
 
@@ -20,7 +20,7 @@ Feature: Checks wikimedia.de fundraising validation functionality in the sensiti
 
   Scenario Outline: Checks if the form validation complains with incomplete address data
     When I click sensitive banner deposit option
-    And I enter sensitive address data
+    And I enter sensitive private address data
     And I remove the <field> address data
     And I submit the sensitive banner non-debit form by clicking the submit button
     Then The address donation part should be visible
@@ -37,7 +37,7 @@ Feature: Checks wikimedia.de fundraising validation functionality in the sensiti
 
   Scenario: Checks if the form validation complains with invalid email
     When I click sensitive banner deposit option
-    And I enter sensitive address data
+    And I enter sensitive private address data
     And I enter an invalid email
     And I submit the sensitive banner non-debit form by clicking the submit button
     Then The address donation part should be visible
@@ -46,7 +46,7 @@ Feature: Checks wikimedia.de fundraising validation functionality in the sensiti
 
   Scenario: Checks if the form validation complains with invalid postcode
     When I click sensitive banner deposit option
-    And I enter sensitive address data
+    And I enter sensitive private address data
     And I enter an invalid post-code
     And I submit the sensitive banner non-debit form by clicking the submit button
     Then The address donation part should be visible
@@ -56,7 +56,7 @@ Feature: Checks wikimedia.de fundraising validation functionality in the sensiti
   Scenario: Checks if the form validation complains with invalid sepa bank data
     When I click sensitive banner debit option
     And I enter invalid sepa bank data
-    And I enter sensitive address data
+    And I enter sensitive private address data
     And I submit the sensitive banner debit form by clicking the submit button
     Then The address donation part should be visible
     And An iban error should show
@@ -66,7 +66,7 @@ Feature: Checks wikimedia.de fundraising validation functionality in the sensiti
     When I click sensitive banner debit option
     And I click on the nonsepa payment option
     And I enter invalid non-sepa bank data
-    And I enter sensitive address data
+    And I enter sensitive private address data
     And I submit the sensitive banner debit form by clicking the submit button
     Then The address donation part should be visible
     And An account-number error should show
@@ -76,5 +76,5 @@ Feature: Checks wikimedia.de fundraising validation functionality in the sensiti
     When I click sensitive banner debit option
     And I click on the nonsepa payment option
     And I enter valid non-sepa bank data
-    And I enter sensitive address data
+    And I enter sensitive private address data
     Then The sepa bank data should be filled with corresponding data

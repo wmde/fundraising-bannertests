@@ -10,7 +10,7 @@ Feature: Checks wikimedia.de fundraising donation functionality in the sensitive
   Scenario Outline: Checks the deposit donation method and confirmation
     When I click sensitive banner deposit option
     And I click the banner <amount> amount option
-    And I enter sensitive address data
+    And I enter sensitive private address data
     And I submit the sensitive banner non-debit form by clicking the submit button
     Then The deposit confirmation page shows
     And The confirmed amount should be <result_amount>
@@ -28,7 +28,7 @@ Feature: Checks wikimedia.de fundraising donation functionality in the sensitive
   Scenario: Checks the credit card donation method
     When I click sensitive banner credit option
     And I click the banner amount100 amount option
-    And I enter sensitive address data
+    And I enter sensitive private address data
     And I submit the sensitive banner non-debit form by clicking the submit button
     Then The credit confirmation page shows
     And The 100 amount value should show
@@ -37,7 +37,7 @@ Feature: Checks wikimedia.de fundraising donation functionality in the sensitive
   Scenario: Checks the paypal donation method
     When I click sensitive banner paypal option
     And I click the banner amount100 amount option
-    And I enter sensitive address data
+    And I enter sensitive private address data
     And I submit the sensitive banner non-debit form by clicking the submit button
     Then The paypal form shows
     And The paypal donation amount should show 100,00 Euro
@@ -45,19 +45,19 @@ Feature: Checks wikimedia.de fundraising donation functionality in the sensitive
   Scenario: Checks the paypal donation method and confirmation
     When I click sensitive banner paypal option
     And I click the banner amount100 amount option
-    And I enter sensitive address data
+    And I enter sensitive private address data
     And I submit the sensitive banner non-debit form by clicking the submit button
     And I login with my paypal credentials
     And I click on the paypal continue button
     And I click on the paypal back button
     Then The normal donation confirmation shows
-    And The sensitive address data on the confirmation page should be the same
+    And The sensitive private address data on the confirmation page should be the same
 
   Scenario: Checks the debit donation method secound step
     When I click sensitive banner debit option
     And I click the banner amount100 amount option
     And I enter valid sepa bank data
-    And I enter sensitive address data
+    And I enter sensitive private address data
     And I submit the sensitive banner debit form by clicking the submit button
     Then The debit secound step should be visible
     And The debit first step should not be visible
@@ -68,16 +68,16 @@ Feature: Checks wikimedia.de fundraising donation functionality in the sensitive
     And The sepa donation part should not be visible
     And The nonsepa donation part should not be visible
     And The debit donation amount should show 100 Euro
-    And The sensitive address data on the debit secound step should be the same
+    And The sensitive private address data on the debit secound step should be the same
 
   Scenario: Checks the debit donation method and final confirmation
     When I click sensitive banner debit option
     And I click the banner amount100 amount option
     And I enter valid sepa bank data
-    And I enter sensitive address data
+    And I enter sensitive private address data
     And I submit the sensitive banner debit form by clicking the submit button
     And I confirm the debit contract
     And I confirm the notification contract
     And I finish the sensitive banner debit form by clicking the submit button
     Then The debit donation confirmation shows
-    And The sensitive address data on the confirmation page should be the same
+    And The sensitive private address data on the confirmation page should be the same

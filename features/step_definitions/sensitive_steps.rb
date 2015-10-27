@@ -14,7 +14,7 @@ When(/^I click on the anonymous option$/) do
   on(ArticlePage).get_element_by_id('address-type-3', 'input').when_visible.click
 end
 
-When(/^I enter sensitive address data$/) do
+When(/^I enter sensitive private address data$/) do
   on(ArticlePage).get_element_by_id('first-name', 'text_field').when_visible.send_keys 'Maxe'
   on(ArticlePage).get_element_by_id('last-name', 'text_field').when_visible.send_keys 'Peter'
   on(ArticlePage).get_element_by_id('street', 'text_field').when_visible.send_keys 'Hansstrasse. 13'
@@ -71,7 +71,7 @@ Then(/^The sepa bank data should be filled with corresponding data$/) do
   expect(on(ArticlePage).get_element_by_id('bic', 'text_field').value).to eq 'INGDDEFFXXX'
 end
 
-Then(/^The sensitive address data should be cleared$/) do
+Then(/^The sensitive private address data should be cleared$/) do
   expect(on(ArticlePage).get_element_by_id('first-name', 'text_field').value).to eq ''
   expect(on(ArticlePage).get_element_by_id('last-name', 'text_field').value).to eq ''
   expect(on(ArticlePage).get_element_by_id('street', 'text_field').value).to eq ''
@@ -218,7 +218,7 @@ Then(/^The normal donation confirmation shows$/) do
   expect(on(SpendenFrontendFrontPage).div_normal_confirmation_element.when_visible).to be_visible
 end
 
-Then(/^The sensitive address data on the confirmation page should be the same$/) do
+Then(/^The sensitive private address data on the confirmation page should be the same$/) do
   expect(on(SpendenFrontendFrontPage).span_confirm_name_element.when_visible.text).to eq 'Maxe Peter'
   expect(on(SpendenFrontendFrontPage).span_confirm_street_element.when_visible.text).to eq 'Hansstrasse. 13'
   expect(on(SpendenFrontendFrontPage).span_confirm_post_code_element.when_visible.text).to eq '12345'
@@ -230,7 +230,7 @@ Then(/^The debit donation amount should show (.*) Euro$/) do |result_amount|
   expect(on(ArticlePage).span_confirm_amount_element.when_visible.text).to eq result_amount
 end
 
-Then(/^The sensitive address data on the debit secound step should be the same$/) do
+Then(/^The sensitive private address data on the debit secound step should be the same$/) do
   expect(on(ArticlePage).span_confirm_salutation_element.when_visible.text).to eq 'Frau Maxe Peter'
   expect(on(ArticlePage).span_confirm_street_element.when_visible.text).to eq 'Hansstrasse. 13'
   expect(on(ArticlePage).span_confirm_city_element.when_visible.text).to eq '12345 Stadtmuster'
