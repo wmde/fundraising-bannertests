@@ -236,3 +236,20 @@ Then(/^The sensitive address data on the debit secound step should be the same$/
   expect(on(ArticlePage).span_confirm_city_element.when_visible.text).to eq '12345 Stadtmuster'
   expect(on(ArticlePage).span_confirm_mail_element.when_visible.text).to eq 'max@test.de'
 end
+
+
+When(/^I confirm the debit contract$/) do
+  on(ArticlePage).get_element_by_id('confirm_sepa', 'checkbox').when_visible.click
+end
+
+When(/^I confirm the notification contract$/) do
+  on(ArticlePage).get_element_by_id('confirm_shortterm', 'checkbox').when_visible.click
+end
+
+When(/^I finish the sensitive banner debit form by clicking the submit button$/) do
+  on(ArticlePage).get_element_by_id('WMDE_BannerFullForm-finish-sepa', 'button').when_visible.click
+end
+
+Then(/^The debit donation confirmation shows$/) do
+  expect(on(SpendenFrontendFrontPage).div_debit_confirmation_element.when_visible).to be_visible
+end
