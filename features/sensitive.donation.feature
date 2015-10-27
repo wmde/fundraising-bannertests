@@ -24,3 +24,12 @@ Feature: Checks wikimedia.de fundraising donation functionality in the sensitive
 #      | amount75 | 75,00 |
       | amount100 | 100,00 |
       | amount250 | 250,00 |
+
+  Scenario: Checks the credit card donation method
+    When I click sensitive banner credit option
+    And I click the banner amount100 amount option
+    And I enter sensitive address data
+    And I submit the sensitive banner non-debit form by clicking the submit button
+    Then The credit confirmation page shows
+    And The 100 amount value should show
+    And The cardholder should be the surname and name

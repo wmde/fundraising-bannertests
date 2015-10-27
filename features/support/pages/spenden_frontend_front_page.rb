@@ -9,6 +9,12 @@ class SpendenFrontendFrontPage
   div(:div_spenden, id: 'wrapper')
   div(:div_deposit, id: 'deposit-donation-confirmation')
 
+  in_iframe({ id: 'micropayment-portal' }) do |mcp_frame|
+    text_field(:input_holder, id: 'holder', frame: mcp_frame)
+    text_field(:input_card_number, id: 'card-number', frame: mcp_frame)
+    text_field(:input_cvc_code, id: 'cvc-code', frame: mcp_frame)
+  end
+
   radio_button(:radio_deposit, id: 'payment-type-1')
   radio_button(:radio_credit, id: 'payment-type-2')
   radio_button(:radio_debit, id: 'payment-type-3')

@@ -154,5 +154,14 @@ end
 
 
 And(/^The confirmed amount should be (.*)$/) do |result_amount|
-  expect(on(SpendenFrontendFrontPage).confirmed_amount_element.text).to be == "#{result_amount}€"
+  expect(on(SpendenFrontendFrontPage).confirmed_amount_element.when_visible.text).to eq "#{result_amount}€"
+end
+
+
+Then(/^The credit confirmation page shows$/) do
+  expect(on(SpendenFrontendFrontPage).input_holder_element.when_visible).to be_visible
+end
+
+And(/^The cardholder should be the surname and name$/) do
+  expect(on(SpendenFrontendFrontPage).input_holder_element.when_visible.value).to eq 'Maxe Peter'
 end
