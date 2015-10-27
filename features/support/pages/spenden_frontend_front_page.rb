@@ -7,6 +7,7 @@ class SpendenFrontendFrontPage
   include PageObject
 
   div(:div_spenden, id: 'wrapper')
+  div(:div_deposit, id: 'deposit-donation-confirmation')
 
   radio_button(:radio_deposit, id: 'payment-type-1')
   radio_button(:radio_credit, id: 'payment-type-2')
@@ -31,5 +32,9 @@ class SpendenFrontendFrontPage
 
   def get_donation_amount_element
     @browser.element(xpath: '//span[contains(@class,\'icon-ok-sign\')]/child::strong[1]')
+  end
+
+  def confirmed_amount_element
+    element('strong', xpath: '//p[contains(@class,\'title\')]/child::strong[1]')
   end
 end

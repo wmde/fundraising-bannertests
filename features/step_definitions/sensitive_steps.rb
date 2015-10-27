@@ -147,3 +147,12 @@ end
 Then(/^An (.*) error should not show$/) do |field|
   expect(on(ArticlePage).get_validation_span_by_field(field).when_visible.class_name).to eq 'validation icon-ok'
 end
+
+Then(/^The deposit confirmation page shows$/) do
+  expect(on(SpendenFrontendFrontPage).div_deposit_element.when_visible).to be_visible
+end
+
+
+And(/^The confirmed amount should be (.*)$/) do |result_amount|
+  expect(on(SpendenFrontendFrontPage).confirmed_amount_element.text).to be == "#{result_amount}€"
+end
