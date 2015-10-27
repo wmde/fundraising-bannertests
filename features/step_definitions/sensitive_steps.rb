@@ -6,17 +6,24 @@ When(/^I click on the nonsepa payment option$/) do
   on(ArticlePage).get_element_by_id('debit-type-2', 'input').when_visible.click
 end
 
-When(/^I click on the address company option$/) do
-  on(ArticlePage).get_element_by_id('address-type-2', 'input').when_visible.click
+When(/^I click the (private|business|anonymous) address type option$/) do |address_type|
+  if address_type == 'private'
+    on(ArticlePage).get_element_by_id('address-type-1', 'input').when_visible.click
+  elsif address_type == 'business'
+    on(ArticlePage).get_element_by_id('address-type-2', 'input').when_visible.click
+  else
+    on(ArticlePage).get_element_by_id('address-type-3', 'input').when_visible.click
+  end
 end
 
-When(/^I click on the anonymous option$/) do
-  on(ArticlePage).get_element_by_id('address-type-3', 'input').when_visible.click
-end
+When(/^I enter sensitive (private|business) address data$/) do |address_type|
+  if address_type == 'private'
+    on(ArticlePage).get_element_by_id('first-name', 'text_field').when_visible.send_keys 'Maxe'
+    on(ArticlePage).get_element_by_id('last-name', 'text_field').when_visible.send_keys 'Peter'
+  else
+    on(ArticlePage).get_element_by_id('company-name', 'text_field').when_visible.send_keys 'Maxe Peter GmbH & Co. KG'
+  end
 
-When(/^I enter sensitive private address data$/) do
-  on(ArticlePage).get_element_by_id('first-name', 'text_field').when_visible.send_keys 'Maxe'
-  on(ArticlePage).get_element_by_id('last-name', 'text_field').when_visible.send_keys 'Peter'
   on(ArticlePage).get_element_by_id('street', 'text_field').when_visible.send_keys 'Hansstrasse. 13'
   on(ArticlePage).get_element_by_id('city', 'text_field').when_visible.send_keys 'Stadtmuster'
   on(ArticlePage).get_element_by_id('post-code', 'text_field').when_visible.send_keys '12345'
@@ -218,8 +225,12 @@ Then(/^The normal donation confirmation shows$/) do
   expect(on(SpendenFrontendFrontPage).div_normal_confirmation_element.when_visible).to be_visible
 end
 
-Then(/^The sensitive private address data on the confirmation page should be the same$/) do
-  expect(on(SpendenFrontendFrontPage).span_confirm_name_element.when_visible.text).to eq 'Maxe Peter'
+Then(/^The sensitive (private|business) address data on the confirmation page should be the same$/) do |address_type|
+  if address_type == 'private'
+    expect(on(SpendenFrontendFrontPage).span_confirm_name_element.when_visible.text).to eq 'Maxe Peter'
+  else
+    expect(on(SpendenFrontendFrontPage).span_confirm_name_element.when_visible.text).to eq 'Maxe Peter GmbH & Co. KG'
+  end
   expect(on(SpendenFrontendFrontPage).span_confirm_street_element.when_visible.text).to eq 'Hansstrasse. 13'
   expect(on(SpendenFrontendFrontPage).span_confirm_post_code_element.when_visible.text).to eq '12345'
   expect(on(SpendenFrontendFrontPage).span_confirm_city_element.when_visible.text).to eq 'Stadtmuster'

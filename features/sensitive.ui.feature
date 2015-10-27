@@ -52,14 +52,14 @@ Feature: Checks wikimedia.de fundraising ui functionality in the sensitive banne
   Scenario: Checks if the company from field opens correctly
     When WMDE_BannerFullForm becomes visible
     And I click sensitive banner debit option
-    And I click on the address company option
+    And I click the business address type option
     Then The company donation part should be visible
     And The person donation part should not be visible
 
   Scenario: Checks if the anonymous from field works correctly
     When WMDE_BannerFullForm becomes visible
     And I click sensitive banner deposit option
-    And I click on the anonymous option
+    And I click the anonymous address type option
     Then The company donation part should not be visible
     And The person donation part should not be visible
     And The address donation part should not be visible
@@ -70,7 +70,7 @@ Feature: Checks wikimedia.de fundraising ui functionality in the sensitive banne
     When WMDE_BannerFullForm becomes visible
     And I click sensitive banner deposit option
     And I enter sensitive private address data
-    And I click on the anonymous option
+    And I click the anonymous address type option
     Then The sensitive private address data should be cleared
 
   Scenario: Checks if switching the payment method clears fields correctly
