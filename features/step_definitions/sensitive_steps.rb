@@ -241,8 +241,12 @@ Then(/^The debit donation amount should show (.*) Euro$/) do |result_amount|
   expect(on(ArticlePage).span_confirm_amount_element.when_visible.text).to eq result_amount
 end
 
-Then(/^The sensitive private address data on the debit secound step should be the same$/) do
-  expect(on(ArticlePage).span_confirm_salutation_element.when_visible.text).to eq 'Frau Maxe Peter'
+Then(/^The sensitive (private|business) address data on the debit secound step should be the same$/) do |address_type|
+  if address_type == 'private'
+    expect(on(ArticlePage).span_confirm_salutation_element.when_visible.text).to eq 'Frau Maxe Peter'
+  else
+    expect(on(ArticlePage).span_confirm_salutation_element.when_visible.text).to eq 'Maxe Peter GmbH & Co. KG'
+  end
   expect(on(ArticlePage).span_confirm_street_element.when_visible.text).to eq 'Hansstrasse. 13'
   expect(on(ArticlePage).span_confirm_city_element.when_visible.text).to eq '12345 Stadtmuster'
   expect(on(ArticlePage).span_confirm_mail_element.when_visible.text).to eq 'max@test.de'

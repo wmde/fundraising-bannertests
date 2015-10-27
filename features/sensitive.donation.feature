@@ -59,11 +59,12 @@ Feature: Checks wikimedia.de fundraising donation functionality in the sensitive
       | private |
       | business |
 
-  Scenario: Checks the debit donation method secound step
+  Scenario Outline: Checks the debit donation method secound step
     When I click sensitive banner debit option
     And I click the banner amount100 amount option
     And I enter valid sepa bank data
-    And I enter sensitive private address data
+    And I click the <address_type> address type option
+    And I enter sensitive <address_type> address data
     And I submit the sensitive banner debit form by clicking the submit button
     Then The debit secound step should be visible
     And The debit first step should not be visible
@@ -74,16 +75,27 @@ Feature: Checks wikimedia.de fundraising donation functionality in the sensitive
     And The sepa donation part should not be visible
     And The nonsepa donation part should not be visible
     And The debit donation amount should show 100 Euro
-    And The sensitive private address data on the debit secound step should be the same
+    And The sensitive <address_type> address data on the debit secound step should be the same
 
-  Scenario: Checks the debit donation method and final confirmation
+  Examples:
+    | address_type |
+    | private |
+    | business |
+
+  Scenario Outline: Checks the debit donation method and final confirmation
     When I click sensitive banner debit option
     And I click the banner amount100 amount option
     And I enter valid sepa bank data
-    And I enter sensitive private address data
+    And I click the <address_type> address type option
+    And I enter sensitive <address_type> address data
     And I submit the sensitive banner debit form by clicking the submit button
     And I confirm the debit contract
     And I confirm the notification contract
     And I finish the sensitive banner debit form by clicking the submit button
     Then The debit donation confirmation shows
-    And The sensitive private address data on the confirmation page should be the same
+    And The sensitive <address_type> address data on the confirmation page should be the same
+
+    Examples:
+      | address_type |
+      | private |
+      | business |
