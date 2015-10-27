@@ -59,6 +59,16 @@ Feature: Checks wikimedia.de fundraising donation functionality in the sensitive
       | private |
       | business |
 
+  Scenario: Checks the anonymous paypal donation method and confirmation
+    When I click sensitive banner paypal option
+    And I click the banner amount100 amount option
+    And I click the anonymous address type option
+    And I submit the sensitive banner non-debit form by clicking the submit button
+    And I login with my paypal credentials
+    And I click on the paypal continue button
+    And I click on the paypal back button
+    Then The normal donation confirmation shows
+
   Scenario Outline: Checks the debit donation method secound step
     When I click sensitive banner debit option
     And I click the banner amount100 amount option
