@@ -140,6 +140,30 @@ Then(/^The finish donation button should not be visible$/) do
   expect(on(ArticlePage).get_element_by_id('WMDE_BannerFullForm-finish', 'button').when_not_visible).not_to be_visible
 end
 
+Then(/^The finish sepa donation button should be visible$/) do
+  expect(on(ArticlePage).get_element_by_id('WMDE_BannerFullForm-finish-sepa', 'button').when_visible).to be_visible
+end
+
+Then(/^The finish sepa donation button should not be visible$/) do
+  expect(on(ArticlePage).get_element_by_id('WMDE_BannerFullForm-finish-sepa', 'button').when_not_visible).not_to be_visible
+end
+
+Then(/^The debit first step should be visible$/) do
+  expect(on(ArticlePage).get_element_by_id('WMDE_BannerFullForm-step1', 'div').when_visible).to be_visible
+end
+
+Then(/^The debit first step should not be visible$/) do
+  expect(on(ArticlePage).get_element_by_id('WMDE_BannerFullForm-step1', 'div').when_not_visible).not_to be_visible
+end
+
+Then(/^The debit secound step should be visible$/) do
+  expect(on(ArticlePage).get_element_by_id('WMDE_BannerFullForm-step2', 'div').when_visible).to be_visible
+end
+
+Then(/^The debit secound step should not be visible$/) do
+  expect(on(ArticlePage).get_element_by_id('WMDE_BannerFullForm-step2', 'div').when_not_visible).not_to be_visible
+end
+
 Then(/^An (.*) error should show$/) do |field|
   expect(on(ArticlePage).get_validation_span_by_field(field).when_visible.class_name).to eq 'validation icon-bug'
 end
@@ -200,4 +224,15 @@ Then(/^The sensitive address data on the confirmation page should be the same$/)
   expect(on(SpendenFrontendFrontPage).span_confirm_post_code_element.when_visible.text).to eq '12345'
   expect(on(SpendenFrontendFrontPage).span_confirm_city_element.when_visible.text).to eq 'Stadtmuster'
   expect(on(SpendenFrontendFrontPage).span_confirm_mail_element.when_visible.text).to eq 'max@test.de'
+end
+
+Then(/^The debit donation amount should show (.*) Euro$/) do |result_amount|
+  expect(on(ArticlePage).span_confirm_amount_element.when_visible.text).to eq result_amount
+end
+
+Then(/^The sensitive address data on the debit secound step should be the same$/) do
+  expect(on(ArticlePage).span_confirm_salutation_element.when_visible.text).to eq 'Frau Maxe Peter'
+  expect(on(ArticlePage).span_confirm_street_element.when_visible.text).to eq 'Hansstrasse. 13'
+  expect(on(ArticlePage).span_confirm_city_element.when_visible.text).to eq '12345 Stadtmuster'
+  expect(on(ArticlePage).span_confirm_mail_element.when_visible.text).to eq 'max@test.de'
 end
