@@ -7,7 +7,9 @@ class SpendenFrontendFrontPage
   include PageObject
 
   div(:div_spenden, id: 'wrapper')
-  div(:div_deposit, id: 'deposit-donation-confirmation')
+  div(:div_debit_confirmation, id: 'debit-donation-confirmation')
+  div(:div_normal_confirmation, id: 'normal-donation-confirmation')
+  div(:div_deposit_confirmation, id: 'deposit-donation-confirmation')
 
   in_iframe({ id: 'micropayment-portal' }) do |mcp_frame|
     text_field(:input_holder, id: 'holder', frame: mcp_frame)
@@ -43,6 +45,12 @@ class SpendenFrontendFrontPage
   text_field(:paypal_login_password, id: 'login_password')
   button(:paypal_login_button, id: 'login.x')
   button(:paypal_continue_button, id: 'continue')
+
+  span(:span_confirm_name, id: 'confirm-name')
+  span(:span_confirm_street, id: 'confirm-street')
+  span(:span_confirm_post_code, id: 'confirm-postcode')
+  span(:span_confirm_city,  id: 'confirm-city')
+  span(:span_confirm_mail,  id: 'confirm-mail')
 
   def get_donation_amount_element
     @browser.element(xpath: '//span[contains(@class,\'icon-ok-sign\')]/child::strong[1]')

@@ -41,3 +41,14 @@ Feature: Checks wikimedia.de fundraising donation functionality in the sensitive
     And I submit the sensitive banner non-debit form by clicking the submit button
     Then The paypal form shows
     And The paypal donation amount should show 100,00 Euro
+
+  Scenario: Checks the paypal donation method and confirmation
+    When I click sensitive banner paypal option
+    And I click the banner amount100 amount option
+    And I enter sensitive address data
+    And I submit the sensitive banner non-debit form by clicking the submit button
+    And I login with my paypal credentials
+    And I click on the paypal continue button
+    And I click on the paypal back button
+    Then The normal donation confirmation shows
+    And The sensitive address data on the confirmation page should be the same

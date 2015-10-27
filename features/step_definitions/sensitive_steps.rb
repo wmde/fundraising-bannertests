@@ -149,11 +149,11 @@ Then(/^An (.*) error should not show$/) do |field|
 end
 
 Then(/^The deposit confirmation page shows$/) do
-  expect(on(SpendenFrontendFrontPage).div_deposit_element.when_visible).to be_visible
+  expect(on(SpendenFrontendFrontPage).div_deposit_confirmation_element.when_visible).to be_visible
 end
 
 
-And(/^The confirmed amount should be (.*)$/) do |result_amount|
+Then(/^The confirmed amount should be (.*)$/) do |result_amount|
   expect(on(SpendenFrontendFrontPage).confirmed_amount_element.when_visible.text).to eq "#{result_amount}€"
 end
 
@@ -162,7 +162,7 @@ Then(/^The credit confirmation page shows$/) do
   expect(on(SpendenFrontendFrontPage).input_holder_element.when_visible).to be_visible
 end
 
-And(/^The cardholder should be the surname and name$/) do
+Then(/^The cardholder should be the surname and name$/) do
   expect(on(SpendenFrontendFrontPage).input_holder_element.when_visible.value).to eq 'Maxe Peter'
 end
 
@@ -171,6 +171,33 @@ Then(/^The paypal form shows$/) do
   expect(on(SpendenFrontendFrontPage).paypal_main_element.when_visible).to be_visible
 end
 
-And(/^The paypal donation amount should show (.*) Euro$/) do |result_amount|
+Then(/^The paypal donation amount should show (.*) Euro$/) do |result_amount|
   expect(on(SpendenFrontendFrontPage).paypal_amount_element.when_visible.text).to eq result_amount
+end
+
+
+When(/^I login with my paypal credentials$/) do
+  on(SpendenFrontendFrontPage).paypal_login_email_element.when_visible.value = ENV['PAYPAL_USERNAME']
+  on(SpendenFrontendFrontPage).paypal_login_password_element.when_visible.value = ENV['PAYPAL_PASSWORD']
+  on(SpendenFrontendFrontPage).paypal_login_button_element.when_visible.click
+end
+
+When(/^I click on the paypal continue button$/) do
+  on(SpendenFrontendFrontPage).paypal_continue_button_element.when_visible.click
+end
+
+When(/^I click on the paypal back button$/) do
+  on(SpendenFrontendFrontPage).paypal_back_element.when_visible.click
+end
+
+Then(/^The normal donation confirmation shows$/) do
+  expect(on(SpendenFrontendFrontPage).div_normal_confirmation_element.when_visible).to be_visible
+end
+
+Then(/^The sensitive address data on the confirmation page should be the same$/) do
+  expect(on(SpendenFrontendFrontPage).span_confirm_name_element.when_visible.text).to eq 'Maxe Peter'
+  expect(on(SpendenFrontendFrontPage).span_confirm_street_element.when_visible.text).to eq 'Hansstrasse. 13'
+  expect(on(SpendenFrontendFrontPage).span_confirm_post_code_element.when_visible.text).to eq '12345'
+  expect(on(SpendenFrontendFrontPage).span_confirm_city_element.when_visible.text).to eq 'Stadtmuster'
+  expect(on(SpendenFrontendFrontPage).span_confirm_mail_element.when_visible.text).to eq 'max@test.de'
 end
