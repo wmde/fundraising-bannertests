@@ -14,7 +14,7 @@ Feature: Checks wikimedia.de fundraising ui functionality in the sensitive banne
     And I click the regularly interval option
     Then Regularly details shows
 
-  Scenario: Checks if the deposit payment method opens correctly
+  Scenario: Checks if the debit payment method opens correctly
     When WMDE_BannerFullForm becomes visible
     And I click sensitive banner debit option
     Then The sepa donation part should be visible
@@ -25,7 +25,7 @@ Feature: Checks wikimedia.de fundraising ui functionality in the sensitive banne
     And The next button should be visible
     And The finish donation button should not be visible
 
-  Scenario Outline: Checks if the non-deposit payment methods open correctly
+  Scenario Outline: Checks if the non-debit payment methods open correctly
     When WMDE_BannerFullForm becomes visible
     And I click sensitive banner <payment_method> option
     Then The sepa donation part should not be visible
@@ -42,7 +42,7 @@ Feature: Checks wikimedia.de fundraising ui functionality in the sensitive banne
     | credit |
     | paypal |
 
-  Scenario: Checks if the nonsepa payment method opens correctly
+  Scenario: Checks if the non-sepa payment method opens correctly
     When WMDE_BannerFullForm becomes visible
     And I click sensitive banner debit option
     And I click on the nonsepa payment option
