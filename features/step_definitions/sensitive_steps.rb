@@ -163,11 +163,11 @@ Then(/^The debit first step should not be visible$/) do
   expect(on(ArticlePage).get_element_by_id('WMDE_BannerFullForm-step1', 'div').when_not_visible).not_to be_visible
 end
 
-Then(/^The debit secound step should be visible$/) do
+Then(/^The debit second step should be visible$/) do
   expect(on(ArticlePage).get_element_by_id('WMDE_BannerFullForm-step2', 'div').when_visible).to be_visible
 end
 
-Then(/^The debit secound step should not be visible$/) do
+Then(/^The debit second step should not be visible$/) do
   expect(on(ArticlePage).get_element_by_id('WMDE_BannerFullForm-step2', 'div').when_not_visible).not_to be_visible
 end
 
@@ -241,7 +241,7 @@ Then(/^The debit donation amount should show (.*) Euro$/) do |result_amount|
   expect(on(ArticlePage).span_confirm_amount_element.when_visible.text).to eq result_amount
 end
 
-Then(/^The sensitive (private|business) address data on the debit secound step should be the same$/) do |address_type|
+Then(/^The sensitive (private|business) address data on the debit second step should be the same$/) do |address_type|
   if address_type == 'private'
     expect(on(ArticlePage).span_confirm_salutation_element.when_visible.text).to eq 'Frau Maxe Peter'
   else
