@@ -11,7 +11,7 @@ Feature: Banner visibility checks for Wikipedia
 
   Examples:
     | banner_div_id |
-    | B14_WMDE_140918_switch |
+    | WMDE_Banner |
 
   Scenario Outline: Checks if a given banner is available
     When I am on a random Wikipedia article page and provide a <banner_code>
@@ -32,3 +32,4 @@ Feature: Banner visibility checks for Wikipedia
   Examples:
     | banner_code | banner_div_id | time_limit |
     | B14_WMDE_140918_switch | B14_WMDE_140918_switch | 8 |
+
