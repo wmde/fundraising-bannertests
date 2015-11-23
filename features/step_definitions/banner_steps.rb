@@ -29,8 +29,12 @@ When(/^I wait a second$/) do
   sleep(1)
 end
 
+When(/^I click the banner close button/) do
+  on(ArticlePage).get_element_by_id('WMDE_Banner-close', 'span').when_visible.click
+end
+
 When(/^I click the (.*) element$/) do | close_button |
-  on(ArticlePage).get_element(close_button).click
+  on(ArticlePage).get_element(close_button).when_visible.click
 end
 
 When(/^I click the (.*) element span$/) do | close_button |
@@ -52,6 +56,10 @@ end
 
 Then(/^The (.*) should hide$/) do | banner_div_id |
   expect(on(ArticlePage).get_element(banner_div_id).visible?).to be false
+end
+
+Then(/^The (.*) banner should not be visible/) do | banner_div_id |
+  expect(on(ArticlePage).get_element_by_id(banner_div_id, 'div').when_not_visible).not_to be_visible
 end
 
 Then(/^The (.*) should vanish$/) do | banner_div_id |
