@@ -9,6 +9,11 @@ Feature: Checks wikimedia.de fundraising ui functionality in the sensitive banne
   Scenario: Checks if the banner shows
     Then The WMDE_BannerFullForm should become visible
 
+  Scenario: Checks if the banner can be closed
+    When WMDE_Banner becomes visible
+    And I click the banner close button
+    Then The WMDE_Banner banner should not be visible
+
   Scenario: Checks if the form switches the interval options
     When WMDE_BannerFullForm becomes visible
     And I click the regularly interval option
