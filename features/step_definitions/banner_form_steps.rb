@@ -63,13 +63,8 @@ And(/^The (.*) amount should be selected$/) do | amount |
   end
 end
 
-def generate_random_amount
-  random = Random.new
-  random.rand(1..99_999)
-end
-
 And(/^I enter an random valid amount$/) do
-  @amount = generate_random_amount
+  @amount = Helper.generate_random_amount
   on(ArticlePage).input_amount = @amount
 end
 
@@ -77,6 +72,10 @@ And(/^The (.*) amount value should show$/) do | amount |
   expect(on(SpendenFrontendFrontPage).get_donation_amount_element.text).to be == "#{amount},00"
 end
 
+And(/^(.*) should show on the formpage as amount$/) do | amount |
+  expect(on(SpendenFrontendFrontPage).get_donation_amount_element.text).to be == "#{amount}"
+end
+
 And(/^The given amount should show$/) do
-  expect(on(SpendenFrontendFrontPage).get_donation_amount_element.text).to be == "#{@amount}€"
+  expect(on(SpendenFrontendFrontPage).get_donation_amount_element.text).to be == "#{@amount},00€"
 end
