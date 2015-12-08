@@ -18,18 +18,6 @@ module BannerModule
     goto_article_page_with_banner('special:random', banner_code, mob)
   end
 
-  def get_element(id)
-    @browser.element(id: "#{id}")
-  end
-
-  def get_element_by_id(id, type)
-    element(type, id: "#{id}")
-  end
-
-  def get_span_by_class(class_id)
-    @browser.element(xpath: "//span[contains(@class,'#{class_id}')][1]")
-  end
-
   def get_banner_y_position(banner_div_id)
     @browser.element(id: "#{banner_div_id}").wd.location.y
   end

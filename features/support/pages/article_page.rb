@@ -5,6 +5,7 @@
 
 class ArticlePage
   include PageObject
+  include Helper
   include BannerModule
   include BannerFormModule
 
