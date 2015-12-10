@@ -18,6 +18,7 @@ end
 
 When(/^I enter sensitive (private|business) address data$/) do |address_type|
   if address_type == 'private'
+    on(ArticlePage).get_element_by_id('salutation-2', 'input').when_visible.click
     on(ArticlePage).get_element_by_id('first-name', 'text_field').when_visible.send_keys 'Maxe'
     on(ArticlePage).get_element_by_id('last-name', 'text_field').when_visible.send_keys 'Peter'
   else
