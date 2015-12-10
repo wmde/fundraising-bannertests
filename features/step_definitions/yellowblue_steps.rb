@@ -1,17 +1,17 @@
 When(/^I select yellowblue banner (deposit|credit|debit|paypal) option$/) do | option |
   if option == 'debit'
-    on(ArticlePage).get_element_by_id('zahlweise', 'select').when_visible.select 'Lastschrift'
+    on(ArticlePage).custom_select_helper('zahlweise', 'Lastschrift')
   elsif option == 'deposit'
-    on(ArticlePage).get_element_by_id('zahlweise', 'select').when_visible.select 'Überweisung'
+    on(ArticlePage).custom_select_helper('zahlweise', 'Überweisung')
   elsif option == 'credit'
-    on(ArticlePage).get_element_by_id('zahlweise', 'select').when_visible.select 'Kreditkarte'
+    on(ArticlePage).custom_select_helper('zahlweise', 'Kreditkarte')
   elsif option == 'paypal'
-    on(ArticlePage).get_element_by_id('zahlweise', 'select').when_visible.select 'Paypal'
+    on(ArticlePage).custom_select_helper('zahlweise', 'Paypal')
   end
 end
 
 When(/^I select the yellowblue banner (.*) amount option$/) do |amount|
-  on(ArticlePage).get_element_by_id('amount_select', 'select').when_visible.select amount
+  on(ArticlePage).custom_select_helper('amount_select', amount)
 end
 
 When(/^I click the yellowblue banner submit button$/) do
