@@ -5,6 +5,7 @@
 
 class SpendenFrontendFrontPage
   include PageObject
+  include Helper
 
   div(:div_spenden, id: 'wrapper')
   div(:div_debit_confirmation, id: 'debit-donation-confirmation')
