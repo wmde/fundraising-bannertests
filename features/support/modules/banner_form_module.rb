@@ -20,15 +20,15 @@ module BannerFormModule
     end
   end
 
-  def click_sensitive_banner_payment(option)
+  def click_banner_payment_option(option)
     if option == 'debit'
-      element('button', xpath: '//tbody[@id = \'WMDE_BannerForm-payment\']/descendant::button[1]').when_visible.click
+      element('button', xpath: '//tbody[@id = \'WMDE_BannerForm-wrapper\']/descendant::button[1]').when_visible.click
     elsif option == 'deposit'
-      element('button', xpath: '//tbody[@id = \'WMDE_BannerForm-payment\']/descendant::button[2]').when_visible.click
+      element('button', xpath: '//tbody[@id = \'WMDE_BannerForm-wrapper\']/descendant::button[2]').when_visible.click
     elsif option == 'credit'
-      element('button', xpath: '//tbody[@id = \'WMDE_BannerForm-payment\']/descendant::button[3]').when_visible.click
+      element('button', xpath: '//tbody[@id = \'WMDE_BannerForm-wrapper\']/descendant::button[3]').when_visible.click
     elsif option == 'paypal'
-      element('button', xpath: '//tbody[@id = \'WMDE_BannerForm-payment\']/descendant::button[4]').when_visible.click
+      element('button', xpath: '//tbody[@id = \'WMDE_BannerForm-wrapper\']/descendant::button[4]').when_visible.click
     end
   end
 
