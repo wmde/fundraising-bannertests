@@ -7,9 +7,31 @@ Feature: Checks wikimedia.de fundraising form functionality in banners for Wikip
     When I am on a random Wikipedia article page and provide a B15WMDE_bulb_prototype
     And WMDE_Banner becomes visible
 
+  Scenario: Checks if the banner can be closed and the hidecookie is set
+    When WMDE_Banner becomes visible
+    And I reset the hide banner cookie centralnotice_wmde15_hide_cookie
+    And I click the banner close button
+    Then The WMDE_Banner banner should not be visible
+    And The hide banner cookie centralnotice_wmde15_hide_cookie should be set
+
   Scenario: Checks if the form switches the interval options
     And I click the regularly interval option
     Then The regularly details shows
+
+  Scenario Outline: Checks if the form submits the interval options correctly
+    When I click the banner amount75 amount option
+    And I click the regularly interval option
+    And I click the <interval> interval option
+    And I click the banner deposit option
+    Then The fundraising frontend shows
+    And The <interval> interval should be selected
+
+    Examples:
+      | interval |
+      | monthly |
+      | quarterly |
+      | semiyearly |
+      | yearly |
 
   Scenario Outline: Checks if the form submits the payment method correctly
     When I click the banner amount75 amount option

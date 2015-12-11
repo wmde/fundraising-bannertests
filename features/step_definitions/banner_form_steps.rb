@@ -5,6 +5,18 @@ And(/^I click the regularly interval option$/) do
   on(ArticlePage).get_element_by_id('interval_multiple', 'input').when_visible.click
 end
 
+When(/^I click the (monthly|quarterly|semiyearly|yearly) interval option$/) do | option |
+  if option == 'monthly'
+    on(ArticlePage).get_element_by_id('interval1', 'input').when_visible.click
+  elsif option == 'quarterly'
+    on(ArticlePage).get_element_by_id('interval3', 'input').when_visible.click
+  elsif option == 'semiyearly'
+    on(ArticlePage).get_element_by_id('interval6', 'input').when_visible.click
+  elsif option == 'yearly'
+    on(ArticlePage).get_element_by_id('interval12', 'input').when_visible.click
+  end
+end
+
 Then(/^The regularly details shows$/) do
   expect(on(ArticlePage).get_element('interval1').visible?).to be true
 end
