@@ -11,8 +11,10 @@ Feature: Checks wikimedia.de fundraising ui functionality in the sensitive banne
 
   Scenario: Checks if the banner can be closed
     When WMDE_Banner becomes visible
+    And I reset the hide banner cookie centralnotice_wmde15_hide_cookie
     And I click the banner close button
     Then The WMDE_Banner banner should not be visible
+    And The hide banner cookie centralnotice_wmde15_hide_cookie should be set
 
   Scenario: Checks if the form switches the interval options
     When WMDE_BannerFullForm becomes visible

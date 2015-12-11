@@ -41,6 +41,11 @@ When(/^I click the (.*) element span$/) do | close_button |
   on(ArticlePage).get_span_by_class(close_button).click
 end
 
+When(/^I reset the hide banner cookie (.*)$/) do | cookie_name |
+  cookie = "$.cookie('#{cookie_name}', null, { path: '/' });"
+  browser.execute_script(cookie)
+end
+
 Then(/^The (.*) should be present$/) do | banner_div_id |
   expect(on(ArticlePage).get_element(banner_div_id).exists?).to be true
 end
@@ -64,4 +69,9 @@ end
 
 Then(/^The (.*) should vanish$/) do | banner_div_id |
   expect(on(ArticlePage).get_element(banner_div_id).exists?).to be false
+end
+
+Then(/^The hide banner cookie (.*) should be set$/) do | cookie_name |
+  cookie = "return $.cookie( '#{cookie_name}' );"
+  expect(browser.execute_script(cookie)).to eq '1'
 end
