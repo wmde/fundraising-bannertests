@@ -19,7 +19,6 @@ Feature: Checks wikimedia.de fundraising form functionality in banners for Wikip
   Scenario Outline: Checks if the form submits the payment method correctly
     When I am on a random Wikipedia article page and provide a B14_WMDE_140918_switch
     And The B14_WMDE_140918_switch should become visible
-    And I wait a second
     And I click the banner <payment_method> option
     Then The fundraising frontend shows
     And The <payment_method> option should be selected
@@ -35,7 +34,6 @@ Feature: Checks wikimedia.de fundraising form functionality in banners for Wikip
   Scenario Outline: Checks if the form submits the selectable amount correctly
     When I am on a random Wikipedia article page and provide a B14_WMDE_140918_switch
     And The B14_WMDE_140918_switch should become visible
-    And I wait a second
     And I click the banner <amount> amount option
     And I click the banner deposit option
     Then The fundraising frontend shows
@@ -55,7 +53,6 @@ Feature: Checks wikimedia.de fundraising form functionality in banners for Wikip
   Scenario: Checks if the form submits the free field amount correctly
     When I am on a random Wikipedia article page and provide a B14_WMDE_140918_switch
     And The B14_WMDE_140918_switch should become visible
-    And I wait a second
     And I enter an random valid amount
     And I click the banner deposit option
     Then The fundraising frontend shows

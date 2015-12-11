@@ -39,8 +39,4 @@ module BannerFormModule
       @browser.element(id: "#{banner_div_id}_btn-ppl").click
     end
   end
-
-  def click_banner_amount(amount)
-    @browser.element(xpath: "//input[@id = \'#{amount}\']").click
-  end
 end

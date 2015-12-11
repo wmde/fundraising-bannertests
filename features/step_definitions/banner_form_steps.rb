@@ -54,7 +54,7 @@ Then(/^The (monthly|quarterly|semiyearly|yearly) interval should be selected$/) 
 end
 
 And(/^I click the banner (.*) amount option$/) do | amount |
-  on(ArticlePage).click_banner_amount(amount)
+  on(ArticlePage).get_element_by_id(amount, 'button').when_visible.click
 end
 
 And(/^The (.*) amount should be selected$/) do | amount |
@@ -77,7 +77,7 @@ end
 
 And(/^I enter an random valid amount$/) do
   @amount = Helper.generate_random_amount
-  on(ArticlePage).input_amount = @amount
+  on(ArticlePage).input_amount_element.when_visible = @amount
 end
 
 And(/^The (.*) amount value should show$/) do | amount |
