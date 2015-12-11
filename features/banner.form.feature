@@ -8,9 +8,8 @@ Feature: Checks wikimedia.de fundraising form functionality in banners for Wikip
   Scenario Outline: Checks if the form switches the interval options
     When I am on a random Wikipedia article page and provide a <banner_code>
     And The <banner_div_id> should become visible
-    And I wait a second
     And I click the regularly interval option
-    Then Regularly details shows
+    Then The regularly details shows
 
   Examples:
     | banner_code | banner_div_id |

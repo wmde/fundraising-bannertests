@@ -5,7 +5,7 @@ And(/^I click the regularly interval option$/) do
   on(ArticlePage).get_element_by_id('interval_multiple', 'input').when_visible.click
 end
 
-Then(/^Regularly details shows$/) do
+Then(/^The regularly details shows$/) do
   expect(on(ArticlePage).get_element('interval1').visible?).to be true
 end
 
