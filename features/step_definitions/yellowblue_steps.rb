@@ -49,15 +49,3 @@ Then(/^The yellowblue regularly details should show$/) do
   expect(on(ArticlePage).get_element_by_id('interval6', 'button').when_visible).to be_visible
   expect(on(ArticlePage).get_element_by_id('interval12', 'button').when_visible).to be_visible
 end
-
-Then(/^The (monthly|quarterly|semiyearly|yearly) interval should be selected$/) do | option |
-  if option == 'monthly'
-    expect(on(SpendenFrontendFrontPage).get_element_by_id('interval-display', 'span').when_visible.text).to eq 'monatlich'
-  elsif option == 'quarterly'
-    expect(on(SpendenFrontendFrontPage).get_element_by_id('interval-display', 'span').when_visible.text).to eq 'quartalsweise'
-  elsif option == 'semiyearly'
-    expect(on(SpendenFrontendFrontPage).get_element_by_id('interval-display', 'span').when_visible.text).to eq 'halbjährlich'
-  elsif option == 'yearly'
-    expect(on(SpendenFrontendFrontPage).get_element_by_id('interval-display', 'span').when_visible.text).to eq 'jährlich'
-  end
-end

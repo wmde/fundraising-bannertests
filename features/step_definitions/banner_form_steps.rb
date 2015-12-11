@@ -41,6 +41,18 @@ And(/^The (deposit|credit|debit|paypal) option should be selected$/) do | option
   end
 end
 
+Then(/^The (monthly|quarterly|semiyearly|yearly) interval should be selected$/) do | option |
+  if option == 'monthly'
+    expect(on(SpendenFrontendFrontPage).get_element_by_id('interval-display', 'span').when_visible.text).to eq 'monatlich'
+  elsif option == 'quarterly'
+    expect(on(SpendenFrontendFrontPage).get_element_by_id('interval-display', 'span').when_visible.text).to eq 'quartalsweise'
+  elsif option == 'semiyearly'
+    expect(on(SpendenFrontendFrontPage).get_element_by_id('interval-display', 'span').when_visible.text).to eq 'halbjährlich'
+  elsif option == 'yearly'
+    expect(on(SpendenFrontendFrontPage).get_element_by_id('interval-display', 'span').when_visible.text).to eq 'jährlich'
+  end
+end
+
 And(/^I click the banner (.*) amount option$/) do | amount |
   on(ArticlePage).click_banner_amount(amount)
 end
