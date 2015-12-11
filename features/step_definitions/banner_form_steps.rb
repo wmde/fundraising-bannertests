@@ -77,7 +77,7 @@ end
 
 And(/^I enter an random valid amount$/) do
   @amount = Helper.generate_random_amount
-  on(ArticlePage).input_amount_element.when_visible = @amount
+  on(ArticlePage).input_amount_element.when_visible.send_keys @amount
 end
 
 And(/^The (.*) amount value should show$/) do | amount |

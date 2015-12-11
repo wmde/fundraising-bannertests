@@ -4,21 +4,15 @@
 Feature: Checks wikimedia.de fundraising form functionality in banners for Wikipedia
 
   Background:
+    When I am on a random Wikipedia article page and provide a B15WMDE_bulb_prototype
+    And WMDE_Banner becomes visible
 
-  Scenario Outline: Checks if the form switches the interval options
-    When I am on a random Wikipedia article page and provide a <banner_code>
-    And The <banner_div_id> should become visible
+  Scenario: Checks if the form switches the interval options
     And I click the regularly interval option
     Then The regularly details shows
 
-  Examples:
-    | banner_code | banner_div_id |
-    | B14_WMDE_140918_switch | B14_WMDE_140918_switch |
-
-
   Scenario Outline: Checks if the form submits the payment method correctly
-    When I am on a random Wikipedia article page and provide a B14_WMDE_140918_switch
-    And The B14_WMDE_140918_switch should become visible
+    When I click the banner amount75 amount option
     And I click the banner <payment_method> option
     Then The fundraising frontend shows
     And The <payment_method> option should be selected
@@ -30,11 +24,8 @@ Feature: Checks wikimedia.de fundraising form functionality in banners for Wikip
     | credit |
     | paypal |
 
-
   Scenario Outline: Checks if the form submits the selectable amount correctly
-    When I am on a random Wikipedia article page and provide a B14_WMDE_140918_switch
-    And The B14_WMDE_140918_switch should become visible
-    And I click the banner <amount> amount option
+    When I click the banner <amount> amount option
     And I click the banner deposit option
     Then The fundraising frontend shows
     And The <amount> amount should be selected
@@ -49,11 +40,8 @@ Feature: Checks wikimedia.de fundraising form functionality in banners for Wikip
     | amount100 |
     | amount250 |
 
-
   Scenario: Checks if the form submits the free field amount correctly
-    When I am on a random Wikipedia article page and provide a B14_WMDE_140918_switch
-    And The B14_WMDE_140918_switch should become visible
-    And I enter an random valid amount
+    When I enter an random valid amount
     And I click the banner deposit option
     Then The fundraising frontend shows
     And The given amount should show
