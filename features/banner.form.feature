@@ -20,7 +20,7 @@ Feature: Checks wikimedia.de fundraising form functionality in banners for Wikip
     When I am on a random Wikipedia article page and provide a B14_WMDE_140918_switch
     And The B14_WMDE_140918_switch should become visible
     And I wait a second
-    And I click the B14_WMDE_140918_switch banner <payment_method> option
+    And I click the banner <payment_method> option
     Then The fundraising frontend shows
     And The <payment_method> option should be selected
 
@@ -37,7 +37,7 @@ Feature: Checks wikimedia.de fundraising form functionality in banners for Wikip
     And The B14_WMDE_140918_switch should become visible
     And I wait a second
     And I click the banner <amount> amount option
-    And I click the B14_WMDE_140918_switch banner deposit option
+    And I click the banner deposit option
     Then The fundraising frontend shows
     And The <amount> amount should be selected
 
@@ -57,6 +57,6 @@ Feature: Checks wikimedia.de fundraising form functionality in banners for Wikip
     And The B14_WMDE_140918_switch should become visible
     And I wait a second
     And I enter an random valid amount
-    And I click the B14_WMDE_140918_switch banner deposit option
+    And I click the banner deposit option
     Then The fundraising frontend shows
     And The given amount should show

@@ -8,18 +8,6 @@ module BannerFormModule
 
   text_field(:input_amount, xpath: "//input[@id = 'amount_other']/following::input[1]")
 
-  def click_banner_from(banner_div_id, option)
-    if (option == 'debit')
-      @browser.element(xpath: "//div[@id = \'#{banner_div_id}\']/descendant::button[contains(@class,\'send\')][1]").click
-    elsif (option == 'deposit')
-      @browser.element(xpath: "//div[@id = \'#{banner_div_id}\']/descendant::button[contains(@class,\'send\')][2]").click
-    elsif (option == 'credit')
-      @browser.element(xpath: "//div[@id = \'#{banner_div_id}\']/descendant::button[contains(@class,\'send\')][3]").click
-    elsif (option == 'paypal')
-      @browser.element(xpath: "//div[@id = \'#{banner_div_id}\']/descendant::button[contains(@class,\'send\')][4]").click
-    end
-  end
-
   def click_banner_payment_option(option)
     if option == 'debit'
       element('button', xpath: '//tbody[@id = \'WMDE_BannerForm-wrapper\']/descendant::button[1]').when_visible.click

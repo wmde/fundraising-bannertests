@@ -9,8 +9,8 @@ Then(/^The regularly details shows$/) do
   expect(on(ArticlePage).get_element('interval1').visible?).to be true
 end
 
-And(/^I click the (.*) banner (deposit|credit|debit|paypal) option$/) do | banner_div_id, option |
-  on(ArticlePage).click_banner_from(banner_div_id, option)
+And(/^I click the banner (deposit|credit|debit|paypal) option$/) do | option |
+  on(ArticlePage).click_banner_payment_option(option)
 end
 
 Then(/^The fundraising frontend shows$/) do
