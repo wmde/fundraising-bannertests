@@ -8,7 +8,7 @@ When(/^I click the buttonbanner (deposit|credit|debit|paypal) option$/) do | opt
   elsif option == 'deposit'
     on(ArticlePage).get_element_by_xpath('.//*[@id=\'WMDE_Banner-payment\']/ul[1]/li[2]/button', 'button').when_visible.click
   elsif option == 'credit'
-    on(ArticlePage).get_element_by_xpath('..//*[@id=\'WMDE_Banner-payment\']/ul[2]/li[1]/button', 'button').when_visible.click
+    on(ArticlePage).get_element_by_xpath('.//*[@id=\'WMDE_Banner-payment\']/ul[2]/li[1]/button', 'button').when_visible.click
   elsif option == 'paypal'
     on(ArticlePage).get_element_by_xpath('.//*[@id=\'WMDE_Banner-payment\']/ul[2]/li[2]/button', 'button').when_visible.click
   end
