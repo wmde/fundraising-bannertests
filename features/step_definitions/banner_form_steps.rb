@@ -17,6 +17,14 @@ When(/^I click the (monthly|quarterly|semiyearly|yearly) interval option$/) do |
   end
 end
 
+When(/^I confirm the low amount alert$/) do
+  browser.alert.ok
+end
+
+When(/^The low amount alert shows$/) do
+  expect(browser.alert.exists?).to be true
+end
+
 Then(/^The regularly details shows$/) do
   expect(on(ArticlePage).get_element('interval1').visible?).to be true
 end
