@@ -6,14 +6,16 @@ And(/^I click the regularly interval option$/) do
 end
 
 When(/^I click the (monthly|quarterly|semiyearly|yearly) interval option$/) do | option |
-  if option == 'monthly'
+  case option
+  when 'monthly'
     on(ArticlePage).get_element_by_id('interval1', 'input').when_visible.click
-  elsif option == 'quarterly'
+  when 'quarterly'
     on(ArticlePage).get_element_by_id('interval3', 'input').when_visible.click
-  elsif option == 'semiyearly'
+  when 'semiyearly'
     on(ArticlePage).get_element_by_id('interval6', 'input').when_visible.click
-  elsif option == 'yearly'
+  when 'yearly'
     on(ArticlePage).get_element_by_id('interval12', 'input').when_visible.click
+  else
   end
 end
 
@@ -50,49 +52,35 @@ Then(/^The paypal donation page shows$/) do
 end
 
 And(/^The (deposit|credit|debit|paypal) option should be selected$/) do | option |
-  if option == 'debit'
+  case option
+  when 'debit'
     expect(on(SpendenFrontendFrontPage).radio_debit_element.selected?).to be true
-  elsif option == 'deposit'
+  when 'deposit'
     expect(on(SpendenFrontendFrontPage).radio_deposit_element.selected?).to be true
-  elsif option == 'credit'
+  when 'credit'
     expect(on(SpendenFrontendFrontPage).radio_credit_element.selected?).to be true
-  elsif option == 'paypal'
+  when 'paypal'
     expect(on(SpendenFrontendFrontPage).radio_paypal_element.selected?).to be true
+  else
   end
 end
 
 Then(/^The (monthly|quarterly|semiyearly|yearly) interval should be selected$/) do | option |
-  if option == 'monthly'
+  case option
+  when 'monthly'
     expect(on(SpendenFrontendFrontPage).get_element_by_id('interval-display', 'span').when_visible.text).to eq 'monatlich'
-  elsif option == 'quarterly'
+  when 'quarterly'
     expect(on(SpendenFrontendFrontPage).get_element_by_id('interval-display', 'span').when_visible.text).to eq 'quartalsweise'
-  elsif option == 'semiyearly'
+  when 'semiyearly'
     expect(on(SpendenFrontendFrontPage).get_element_by_id('interval-display', 'span').when_visible.text).to eq 'halbjährlich'
-  elsif option == 'yearly'
+  when 'yearly'
     expect(on(SpendenFrontendFrontPage).get_element_by_id('interval-display', 'span').when_visible.text).to eq 'jährlich'
+  else
   end
 end
 
 And(/^I click the banner (.*) amount option$/) do | amount |
   on(ArticlePage).get_element_by_id(amount, 'button').when_visible.click
-end
-
-And(/^The (.*) amount should be selected$/) do | amount |
-  if amount == 'amount5'
-    expect(on(SpendenFrontendFrontPage).radio_5_element.selected?).to be true
-  elsif amount == 'amount15'
-    expect(on(SpendenFrontendFrontPage).radio_15_element.selected?).to be true
-  elsif amount == 'amount25'
-    expect(on(SpendenFrontendFrontPage).radio_25_element.selected?).to be true
-  elsif amount == 'amount50'
-    expect(on(SpendenFrontendFrontPage).radio_50_element.selected?).to be true
-  elsif amount == 'amount75'
-    expect(on(SpendenFrontendFrontPage).radio_75_element.selected?).to be true
-  elsif amount == 'amount100'
-    expect(on(SpendenFrontendFrontPage).radio_100_element.selected?).to be true
-  elsif amount == 'amount250'
-    expect(on(SpendenFrontendFrontPage).radio_250_element.selected?).to be true
-  end
 end
 
 And(/^I enter an random valid amount$/) do

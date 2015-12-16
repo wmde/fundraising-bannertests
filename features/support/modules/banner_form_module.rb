@@ -9,14 +9,16 @@ module BannerFormModule
   text_field(:input_amount, xpath: "//input[@id = 'amount_other']/following::input[1]")
 
   def click_banner_payment_option(option)
-    if option == 'debit'
+    case option
+    when 'debit'
       element('button', xpath: '//td[@id = \'WMDE_BannerForm-wrapper\']/descendant::button[1]').when_visible.click
-    elsif option == 'deposit'
+    when 'deposit'
       element('button', xpath: '//td[@id = \'WMDE_BannerForm-wrapper\']/descendant::button[2]').when_visible.click
-    elsif option == 'credit'
+    when 'credit'
       element('button', xpath: '//td[@id = \'WMDE_BannerForm-wrapper\']/descendant::button[3]').when_visible.click
-    elsif option == 'paypal'
+    when 'paypal'
       element('button', xpath: '//td[@id = \'WMDE_BannerForm-wrapper\']/descendant::button[4]').when_visible.click
+    else
     end
   end
 

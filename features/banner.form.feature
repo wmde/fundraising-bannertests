@@ -59,17 +59,17 @@ Feature: Checks wikimedia.de fundraising form functionality in banners for Wikip
     When I click the banner <amount> amount option
     And I click the banner deposit option
     Then The fundraising frontend shows
-    And The <amount> amount should be selected
+    Then <result_amount> should show on the formpage as amount
 
   Examples:
-    | amount |
-    | amount5 |
-    | amount15 |
-    | amount25 |
-    | amount50 |
-    | amount75 |
-    | amount100 |
-    | amount250 |
+    | amount | result_amount |
+    | amount5 | 5,00€ |
+    | amount15 | 15,00€ |
+    | amount25 | 25,00€ |
+    | amount50 | 50,00€ |
+    | amount75 | 75,00€ |
+    | amount100 | 100,00€ |
+    | amount250 | 250,00€ |
 
   Scenario: Checks if the form submits the free field amount correctly
     When I enter an random valid amount
