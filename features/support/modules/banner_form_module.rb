@@ -33,12 +33,4 @@ module BannerFormModule
   span(:span_confirm_mail,  id: 'WMDE_BannerFullForm-confirm-mail')
   span(:span_confirm_iban,  id: 'WMDE_BannerFullForm-confirm-IBAN')
   span(:span_confirm_bic,  id: 'WMDE_BannerFullForm-confirm-BIC')
-
-  def click_mobilebanner_from(banner_div_id, option)
-    if (option == 'credit')
-      @browser.element(id: "#{banner_div_id}_btn-cc").click
-    elsif (option == 'paypal')
-      @browser.element(id: "#{banner_div_id}_btn-ppl").click
-    end
-  end
 end
