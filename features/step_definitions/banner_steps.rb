@@ -17,10 +17,6 @@ When(/^(.*) becomes visible$/) do |banner_div_id|
   on(ArticlePage).wait_for_banner_to_show(banner_div_id)
 end
 
-When(/^I am on a long Wikipedia article page and provide a (.*)$/) do | banner_code |
-  on(ArticlePage).goto_article_page_with_banner('Stausee Lipno', banner_code)
-end
-
 When(/^I start a timer$/) do
   @start_time = Time.now
 end
@@ -65,10 +61,6 @@ end
 
 Then(/^The (.*) banner should not be visible/) do | banner_div_id |
   expect(on(ArticlePage).get_element_by_id(banner_div_id, 'div').when_not_visible).not_to be_visible
-end
-
-Then(/^The (.*) should vanish$/) do | banner_div_id |
-  expect(on(ArticlePage).get_element(banner_div_id).exists?).to be false
 end
 
 Then(/^The hide banner cookie (.*) should be set$/) do | cookie_name |
