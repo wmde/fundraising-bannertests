@@ -31,5 +31,5 @@ Feature: Banner visibility checks for Wikipedia
 
   Examples:
     | banner_code | banner_div_id | time_limit |
-    | B14_WMDE_140918_switch | B14_WMDE_140918_switch | 8 |
+    | B14_WMDE_140918_switch | B14_WMDE_140918_switch | 10 |
 
