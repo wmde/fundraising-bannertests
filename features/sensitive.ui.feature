@@ -16,6 +16,11 @@ Feature: Checks wikimedia.de fundraising ui functionality in the sensitive banne
     Then The WMDE_Banner banner should not be visible
     And The hide banner cookie centralnotice_wmde15_hide_cookie should be set
 
+  Scenario: Checks if the low amount warning shows
+    When I click the banner deposit option
+    And I submit the sensitive banner non-debit form by clicking the submit button
+    Then The low amount alert shows
+
   Scenario: Checks if the form switches the interval options
     When The WMDE_BannerFullForm banner container is visible
     And I click the regularly interval option
