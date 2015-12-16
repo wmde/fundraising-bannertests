@@ -62,7 +62,7 @@ Feature: Checks wikimedia.de fundraising donation functionality in the yellowblu
     And I select the yellowblue banner Anderer Betrag amount option
     Then The yellowblue other amount field should show
 
-  Scenario Outline: Checks the credit card donation method
+  Scenario Outline: Checks if the form submits the payment method correctly
     When I select yellowblue banner <payment_method> option
     And I select the yellowblue banner 100,00 € amount option
     And I click the yellowblue banner submit button

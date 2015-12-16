@@ -1,5 +1,5 @@
 When(/^I click sensitive banner (deposit|credit|debit|paypal) option$/) do | option |
-  on(ArticlePage).click_sensitive_banner_payment(option)
+  on(ArticlePage).click_banner_payment_option(option)
 end
 
 When(/^I click on the nonsepa payment option$/) do

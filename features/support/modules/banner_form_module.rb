@@ -8,27 +8,15 @@ module BannerFormModule
 
   text_field(:input_amount, xpath: "//input[@id = 'amount_other']/following::input[1]")
 
-  def click_banner_from(banner_div_id, option)
-    if (option == 'debit')
-      @browser.element(xpath: "//div[@id = \'#{banner_div_id}\']/descendant::button[contains(@class,\'send\')][1]").click
-    elsif (option == 'deposit')
-      @browser.element(xpath: "//div[@id = \'#{banner_div_id}\']/descendant::button[contains(@class,\'send\')][2]").click
-    elsif (option == 'credit')
-      @browser.element(xpath: "//div[@id = \'#{banner_div_id}\']/descendant::button[contains(@class,\'send\')][3]").click
-    elsif (option == 'paypal')
-      @browser.element(xpath: "//div[@id = \'#{banner_div_id}\']/descendant::button[contains(@class,\'send\')][4]").click
-    end
-  end
-
-  def click_sensitive_banner_payment(option)
+  def click_banner_payment_option(option)
     if option == 'debit'
-      element('button', xpath: '//tbody[@id = \'WMDE_BannerForm-payment\']/descendant::button[1]').when_visible.click
+      element('button', xpath: '//td[@id = \'WMDE_BannerForm-wrapper\']/descendant::button[1]').when_visible.click
     elsif option == 'deposit'
-      element('button', xpath: '//tbody[@id = \'WMDE_BannerForm-payment\']/descendant::button[2]').when_visible.click
+      element('button', xpath: '//td[@id = \'WMDE_BannerForm-wrapper\']/descendant::button[2]').when_visible.click
     elsif option == 'credit'
-      element('button', xpath: '//tbody[@id = \'WMDE_BannerForm-payment\']/descendant::button[3]').when_visible.click
+      element('button', xpath: '//td[@id = \'WMDE_BannerForm-wrapper\']/descendant::button[3]').when_visible.click
     elsif option == 'paypal'
-      element('button', xpath: '//tbody[@id = \'WMDE_BannerForm-payment\']/descendant::button[4]').when_visible.click
+      element('button', xpath: '//td[@id = \'WMDE_BannerForm-wrapper\']/descendant::button[4]').when_visible.click
     end
   end
 
@@ -50,9 +38,5 @@ module BannerFormModule
     elsif (option == 'paypal')
       @browser.element(id: "#{banner_div_id}_btn-ppl").click
     end
-  end
-
-  def click_banner_amount(amount)
-    @browser.element(xpath: "//input[@id = \'#{amount}\']").click
   end
 end
