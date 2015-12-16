@@ -46,6 +46,15 @@ Feature: Checks wikimedia.de fundraising form functionality in banners for Wikip
     | credit |
     | paypal |
 
+  Scenario: Checks if the low amount warning shows
+    When I click the banner deposit option
+    Then The low amount alert shows
+
+  Scenario: Checks if the low amount warning blocks the form
+    When I click the banner deposit option
+    And I confirm the low amount alert
+    Then WMDE_Banner becomes visible
+
   Scenario Outline: Checks if the form submits the selectable amount correctly
     When I click the banner <amount> amount option
     And I click the banner deposit option
