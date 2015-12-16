@@ -19,7 +19,7 @@ Feature: Checks wikimedia.de fundraising ui functionality in the sensitive banne
   Scenario: Checks if the form switches the interval options
     When WMDE_BannerFullForm becomes visible
     And I click the regularly interval option
-    Then Regularly details shows
+    Then The regularly details shows
 
   Scenario: Checks if the debit payment method opens correctly
     When WMDE_BannerFullForm becomes visible
