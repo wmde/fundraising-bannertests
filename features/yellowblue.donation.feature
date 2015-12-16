@@ -5,10 +5,10 @@ Feature: Checks wikimedia.de fundraising donation functionality in the yellowblu
 
   Background:
     When I am on a random Wikipedia article page and provide a B15WMDE_ikea_prototype
-    And WMDE_Banner becomes visible
+    And The WMDE_Banner banner container is visible
 
   Scenario: Checks if the banner can be closed and the hidecookie is set
-    When WMDE_Banner becomes visible
+    When The WMDE_Banner banner container is visible
     And I reset the hide banner cookie centralnotice_wmde15_hide_cookie
     And I click the banner close button
     Then The WMDE_Banner banner should not be visible

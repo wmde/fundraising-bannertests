@@ -26,7 +26,7 @@ Feature: Banner visibility checks for Wikipedia
   Scenario Outline: Checks if a given banner shows after a given time
     When I am on a random Wikipedia article page and provide a <banner_code>
     And I start a timer
-    Then The <banner_div_id> should become visible
+    Then The <banner_div_id> banner container should be visible
     And The timer should not exceed the <time_limit>
 
   Examples:

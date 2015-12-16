@@ -13,7 +13,11 @@ When(/^I am on a random Wikipedia article page and provide a (.*)$/) do | banner
   on(ArticlePage).goto_random_page_with_banner(banner_code, false)
 end
 
-When(/^(.*) becomes visible$/) do |banner_div_id|
+When(/^The (.*) banner container is visible$/) do |banner_div_id|
+  on(ArticlePage).wait_for_banner_to_show(banner_div_id)
+end
+
+Then(/^The (.*) banner container should be visible$/) do |banner_div_id|
   on(ArticlePage).wait_for_banner_to_show(banner_div_id)
 end
 
@@ -44,10 +48,6 @@ end
 
 Then(/^The (.*) should be present$/) do | banner_div_id |
   expect(on(ArticlePage).get_element(banner_div_id).exists?).to be true
-end
-
-Then(/^The (.*) should become visible$/) do |banner_div_id|
-  on(ArticlePage).wait_for_banner_to_show(banner_div_id)
 end
 
 Then(/^The timer should not exceed the (.*)$/) do | time_limit |

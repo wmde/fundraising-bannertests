@@ -5,7 +5,7 @@ Feature: Checks wikimedia.de fundraising donation functionality in the buttonban
 
   Background:
     When I am on a random Wikipedia article page and provide a B15WMDE_30_151211_buttons
-    And WMDE_Banner becomes visible
+    And The WMDE_Banner banner container is visible
 
   Scenario: Checks if the banner can be closed and the hidecookie is set
     When I reset the hide banner cookie centralnotice_wmde15_hide_cookie
@@ -39,7 +39,7 @@ Feature: Checks wikimedia.de fundraising donation functionality in the buttonban
   Scenario: Checks if the low amount warning blocks the form
     When I click the buttonbanner deposit option
     And I confirm the low amount alert
-    Then WMDE_Banner becomes visible
+    Then The WMDE_Banner banner container is visible
 
   Scenario Outline: Checks if the form submits the selectable amount correctly
     And I click the buttonbanner <amount> amount option

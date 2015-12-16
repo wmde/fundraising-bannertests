@@ -5,7 +5,7 @@ Feature: Checks wikimedia.de fundraising donation functionality in the sensitive
 
   Background:
     When I am on a random Wikipedia article page and provide a B15WMDE_sensitive
-    And WMDE_BannerFullForm becomes visible
+    And The WMDE_BannerFullForm banner container is visible
 
   Scenario Outline: Checks the deposit donation method and confirmation
     When I click sensitive banner deposit option
