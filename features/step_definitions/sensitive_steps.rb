@@ -248,7 +248,7 @@ end
 
 Then(/^The sensitive (private|business) address data on the debit second step should be the same$/) do |address_type|
   if address_type == 'private'
-    expect(on(ArticlePage).span_confirm_salutation_element.when_visible.text).to eq 'Frau Maxe Peter'
+    expect(on(ArticlePage).span_confirm_salutation_element.when_visible.text).to eq 'Herr Maxe Peter'
   else
     expect(on(ArticlePage).span_confirm_salutation_element.when_visible.text).to eq 'Maxe Peter GmbH & Co. KG'
   end
