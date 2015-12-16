@@ -61,6 +61,10 @@ When(/^I submit the sensitive banner non-debit form by clicking the submit butto
   on(ArticlePage).get_element_by_id('WMDE_BannerFullForm-finish', 'button').when_visible.click
 end
 
+When(/^I submit the sensitive banner non-debit form by pressing the enter key$/) do
+  on(ArticlePage).get_element_by_id('email', 'text_field').when_visible.send_keys :enter
+end
+
 When(/^I submit the sensitive banner debit form by clicking the submit button$/) do
   on(ArticlePage).get_element_by_id('WMDE_BannerFullForm-next', 'button').when_visible.click
 end
