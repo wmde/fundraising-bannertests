@@ -6,6 +6,7 @@ Feature: Checks wikimedia.de fundraising validation functionality in the sensiti
   Background:
     When I am on a random Wikipedia article page and provide a B15WMDE_sensitive
     And The WMDE_BannerFullForm banner container is visible
+    And I click the banner amount5 amount option
 
   Scenario Outline: Checks if the form validation accepts valid address data
     When I click sensitive banner deposit option
