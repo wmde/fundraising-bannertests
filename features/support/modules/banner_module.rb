@@ -7,10 +7,10 @@ module BannerModule
   include PageObject
 
   def goto_article_page_with_banner(article_name, banner_code, mob)
-    if mob == false
-      navigate_to URL.mediawiki_url + "?title=#{article_name}&banner=#{banner_code}"
-    elsif mob == true
+    if mob
       navigate_to URL.mediawiki_mobile_url + "?title=#{article_name}&banner=#{banner_code}"
+    else
+      navigate_to URL.mediawiki_url + "?title=#{article_name}&banner=#{banner_code}"
     end
   end
 
