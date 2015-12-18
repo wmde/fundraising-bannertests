@@ -3,14 +3,16 @@ When(/^I click the buttonbanner regularly interval option$/) do
 end
 
 When(/^I click the buttonbanner (deposit|credit|debit|paypal) option$/) do | option |
-  if option == 'debit'
+  case option
+  when 'debit'
     on(ArticlePage).get_element_by_xpath('.//*[@id=\'WMDE_Banner-payment\']/ul[1]/li[1]/button', 'button').when_visible.click
-  elsif option == 'deposit'
+  when 'deposit'
     on(ArticlePage).get_element_by_xpath('.//*[@id=\'WMDE_Banner-payment\']/ul[1]/li[2]/button', 'button').when_visible.click
-  elsif option == 'credit'
+  when 'credit'
     on(ArticlePage).get_element_by_xpath('.//*[@id=\'WMDE_Banner-payment\']/ul[2]/li[1]/button', 'button').when_visible.click
-  elsif option == 'paypal'
+  when 'paypal'
     on(ArticlePage).get_element_by_xpath('.//*[@id=\'WMDE_Banner-payment\']/ul[2]/li[2]/button', 'button').when_visible.click
+  else
   end
 end
 

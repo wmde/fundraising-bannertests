@@ -7,8 +7,7 @@ Feature: Checks wikimedia.de fundraising mobile fullscreen banners for Wikipedia
 
   Scenario Outline: Checks if the form submits the selectable amount correctly
     When I am on a random mobile Wikipedia article page and provide a B14WMDE_mobile_prototype
-    And The B14WMDE_mobile_prototype should become visible
-    And I wait a second
+    And The B14WMDE_mobile_prototype banner container is visible
     And I click the banner <amount> amount option
     And I click the B14WMDE_mobile_prototype mobilebanner credit option
     Then The fundraising frontend shows
@@ -25,8 +24,7 @@ Feature: Checks wikimedia.de fundraising mobile fullscreen banners for Wikipedia
 
   Scenario: Checks if the form submits paypal correctly
     When I am on a random mobile Wikipedia article page and provide a B14WMDE_mobile_prototype
-    And The B14WMDE_mobile_prototype should become visible
-    And I wait a second
+    And The B14WMDE_mobile_prototype banner container is visible
     And I click the banner amount1 amount option
     And I click the B14WMDE_mobile_prototype mobilebanner paypal option
     Then The paypal donation page shows

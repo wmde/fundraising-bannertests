@@ -5,10 +5,10 @@ Feature: Checks wikimedia.de fundraising form functionality in banners for Wikip
 
   Background:
     When I am on a random Wikipedia article page and provide a B15WMDE_bulb_prototype
-    And WMDE_Banner becomes visible
+    And The WMDE_Banner banner container is visible
 
   Scenario: Checks if the banner can be closed and the hidecookie is set
-    When WMDE_Banner becomes visible
+    When The WMDE_Banner banner container is visible
     And I reset the hide banner cookie centralnotice_wmde15_hide_cookie
     And I click the banner close button
     Then The WMDE_Banner banner should not be visible
@@ -53,23 +53,23 @@ Feature: Checks wikimedia.de fundraising form functionality in banners for Wikip
   Scenario: Checks if the low amount warning blocks the form
     When I click the banner deposit option
     And I confirm the low amount alert
-    Then WMDE_Banner becomes visible
+    Then The WMDE_Banner banner container is visible
 
   Scenario Outline: Checks if the form submits the selectable amount correctly
     When I click the banner <amount> amount option
     And I click the banner deposit option
     Then The fundraising frontend shows
-    And The <amount> amount should be selected
+    Then <result_amount> should show on the formpage as amount
 
   Examples:
-    | amount |
-    | amount5 |
-    | amount15 |
-    | amount25 |
-    | amount50 |
-    | amount75 |
-    | amount100 |
-    | amount250 |
+    | amount | result_amount |
+    | amount5 | 5,00€ |
+    | amount15 | 15,00€ |
+    | amount25 | 25,00€ |
+    | amount50 | 50,00€ |
+    | amount75 | 75,00€ |
+    | amount100 | 100,00€ |
+    | amount250 | 250,00€ |
 
   Scenario: Checks if the form submits the free field amount correctly
     When I enter an random valid amount
