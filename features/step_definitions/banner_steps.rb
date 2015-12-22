@@ -29,6 +29,10 @@ When(/^I wait a second$/) do
   sleep(1)
 end
 
+When(/^I wait (\d+) seconds$/) do |seconds|
+  sleep(seconds.to_i)
+end
+
 When(/^I click the banner close button/) do
   on(ArticlePage).get_element_by_id('WMDE_Banner-close', 'span').when_visible.click
 end
