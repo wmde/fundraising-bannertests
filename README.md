@@ -38,12 +38,12 @@ bundle exec cucumber
 
 Run a specific feature
 ```shell
-bundle exec cucumber features/banner.feature
+bundle exec cucumber features/banner.visibility.feature
 ```
 
 Run a specific scenario (codeline)
 ```shell
-bundle exec cucumber features/banner.feature:42
+bundle exec cucumber features/banner.visibility.feature:42
 ```
 
 Run only tests with a specific tag
